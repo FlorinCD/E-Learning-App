@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/mergeSort.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Merge Sort</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="par0">
+                            
+                            Merge Sort is a popular and efficient sorting algorithm that follows the divide-and-conquer paradigm. It works by recursively dividing the unsorted array into smaller subarrays until each subarray contains only one element. Afterward, it merges these subarrays in a sorted manner to produce a fully sorted array. The key steps in the Merge Sort algorithm include:
+                        </p>
+                        <h4>1. Divide</h4>
+                        <ul>
+                            <li class="par1">The unsorted array is divided into two halves until each subarray has only one element.</li>
+                        </ul>
+                        <h4>2. Conquer</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">The individual elements are considered sorted by default. The algorithm recursively merges adjacent subarrays, comparing and rearranging elements to maintain the sorted order.</li>
+                        </ul>
+                        <h4>3. Merge</h4>
+                        <ul>
+                            <li class="par1">During the merge step, two sorted subarrays are combined to create a larger sorted subarray. This process is repeated until the entire array is merged and sorted.</li>
+                        </ul>
+                        <h4>About Merge Sort</h4>
+                        <p class="par0">
+                            
+    Merge Sort is a versatile algorithm widely used for sorting data in various applications. Its efficiency, stability, and consistent performance make it suitable for scenarios where sorting is a critical operation. 
+                        </p>
+                        <li class="infoHowtoUse"></li>
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        <div class="sortImgCode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container" id="container-buttons">
+                <div class="row" id="row-button">
+                    <div class="col-md-12 col-xs-6">
+                        <ul class="button-list" id="button-list-container">
+                            <button class="sorting-button" id="button-start">Sort</button>
+                            <button class="sorting-button" id="button-addArray">Generate</button>
+                            <div class="rangeWrapper">
+                                <p class="textRangeWrapper">Speed</p>
+                                <input type="range" id="inputRange" min="1" max="250" value="10">
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" id="SortVisualization">
+                    
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Time complexity</h4>
+                        <ul>
+                            <li class="par1">
+                                The time complexity of the Merge Sort algorithm is <span class="highlightText">O(nlogn)</span>, where <span class="highlightText">n</span> is the number of elements in the array being sorted. This time complexity holds for the average, worst, and best cases.
+                            </li>
+                            <li class="par1">
+                                The efficiency of Merge Sort comes from its divide-and-conquer approach, where the array is repeatedly divided into halves until individual elements are reached. The merging process, which combines and sorts the divided subarrays, takes <span class="highlightText">O(n)</span> time in each recursive call.
+                            </li>
+                        </ul>
+                        <h4>Space Complexity (Memory)</h4>
+                        <ul>
+                            <li class="par1">The space complexity of Merge Sort is <span class="highlightText">O(n)</span>, where <span class="highlightText">n</span> is the number of elements in the array being sorted. The primary contributor to the space complexity is the auxiliary array used during the merging process.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/mergeSort.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

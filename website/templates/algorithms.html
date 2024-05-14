@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/algorithms.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="container" id="con0">
+                <div class="row">
+                    <div class="col">
+                        <table class="table" id="table-wrapper">
+                            <section class="table_header">
+                                <h1 class="table-title">Choose your algorithm!</h1>
+                            </section>
+                            <section class="table_body">
+                                <table class="table-algo">
+                                    <thead class="thead-dark">
+                                        <tr scope="row" class="row-algo">
+                                            <th scope="col" class="th-algo">Name</th>
+                                            <th scope="col" class="th-algo">Difficulty</th>
+                                            <th scope="col" class="th-algo">Usage</th>
+                                            <th scope="col" class="th-algo">Popularity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr scope="row" class="bfs-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/bfs'">
+                                            <td scope="col" class="td-algo">Breath first search</td>
+                                            <td scope="col" class="td-algo">Easy-Medium</td>
+                                            <td scope="col" class="td-algo">Very Important</td>
+                                            <td scope="col" class="td-algo">Popular</td>
+                                        </tr>
+                                        <tr scope="row" class="dfs-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/dfs'">
+                                            <td scope="col" class="td-algo">Depth first search</td>
+                                            <td scope="col" class="td-algo">Easy-Medium</td>
+                                            <td scope="col" class="td-algo">Very Important</td>
+                                            <td scope="col" class="td-algo">Popular</td>
+                                        </tr>
+                                        <tr scope="row" class="dijkstra-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/dijkstra'">
+                                            <td scope="col" class="td-algo">Dijkstra</td>
+                                            <td scope="col" class="td-algo">Medium</td>
+                                            <td scope="col" class="td-algo">Important</td>
+                                            <td scope="col" class="td-algo">Popular</td>
+                                        </tr>
+                                        <tr scope="row" class="aStar-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/astar'">
+                                            <td scope="col" class="td-algo">A* star</td>
+                                            <td scope="col" class="td-algo">Medium</td>
+                                            <td scope="col" class="td-algo">Important</td>
+                                            <td scope="col" class="td-algo">Not very popular</td>
+                                        </tr>
+                                        <tr scope="row" class="bisect-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/binarySearch'">
+                                            <td scope="col" class="td-algo">Binary search</td>
+                                            <td scope="col" class="td-algo">Easy</td>
+                                            <td scope="col" class="td-algo">Very Important</td>
+                                            <td scope="col" class="td-algo">Popular</td>
+                                        </tr>
+                                        <tr scope="row" class="insertionSort-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/insertionSort'">
+                                            <td scope="col" class="td-algo">Insertion Sort</td>
+                                            <td scope="col" class="td-algo">Easy</td>
+                                            <td scope="col" class="td-algo">Important</td>
+                                            <td scope="col" class="td-algo">Popular</td>
+                                        </tr>
+                                        <tr scope="row" class="quickSort-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/quickSort'">
+                                            <td scope="col" class="td-algo">Quick Sort</td>
+                                            <td scope="col" class="td-algo">Medium</td>
+                                            <td scope="col" class="td-algo">Very Important</td>
+                                            <td scope="col" class="td-algo">Popular</td>
+                                        </tr>
+                                        <tr scope="row" class="mergeSort-algo" onclick="window.location='http://127.0.0.1:5000/algorithms/mergeSort'">
+                                            <td scope="col" class="td-algo">Merge Sort</td>
+                                            <td scope="col" class="td-algo">Medium</td>
+                                            <td scope="col" class="td-algo">Important</td>
+                                            <td scope="col" class="td-algo">Popular</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </table>
+                    </div>
+
+                    <!--div class="col-md-5" id="algo-img">
+
+                    </div-->
+
+                    <div class="col" id="circle-orbit-wrapper">
+                        <div class="col" id="circle-orbit-container">
+
+                            <!-- Circles closest to the central point -->
+                            <div id="inner-orbit">
+                            <div class="inner-orbit-cirlces"></div>
+                            </div>
+                        
+                            <!-- Circles second closest to the central point -->
+                            <div id="middle-orbit">
+                            <div class="middle-orbit-cirlces"></div>
+                            </div>
+                        
+                            <!-- Circles furthest away to the central point -->
+                            <div id="outer-orbit">
+                            <div class="outer-orbit-cirlces"></div>
+                            </div>
+
+                            <div id="inner-inner-orbit">
+                                <div class="inner-inner-orbit-cirlces"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

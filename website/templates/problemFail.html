@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/problemFail.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container" id="container0">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="container" id="container-wrapper">
+                <div class="wrapper">
+                    <div class="row">
+                        <div class="col">
+                            <div class="wrapper-title">
+                                <div class="letter-f"></div>
+                                <div class="letter-a"></div>
+                                <div class="letter-i"></div>
+                                <div class="letter-l"></div>
+                                <div class="letter-e"></div>
+                                <div class="letter-d"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="wrapper-text">
+                                <p class="content-text-fail">Unfortunately the submission has failed!</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if error %}
+                        <div class="row">
+                            <div class="col">
+                                <div class="wrapper-error">
+                                    <p class="content-text-error">Error!</p>
+                                    <p class="content-text-error">{{ submission_error }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="wrapper-input">
+                                    <p class="content-text-input">Testcase input:</p>
+                                    <textarea class="input-textarea">{{ input_case }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <div class="col">
+                                <div class="wrapper-input">
+                                    <p class="content-text-input">Testcase input:</p>
+                                    <textarea class="input-textarea">{{ input_case }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="wrapper-expected-output">
+                                    <p class="content-text-expected-output">Testcase expected output:</p>
+                                    <textarea class="expected-output-textarea">{{ expected_output_case }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="wrapper-client-output">
+                                    <p class="content-text-client-output">Testcase client output:</p>
+                                    <textarea class="client-output-textarea">{{ client_output_case }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="../static/javascript/problemFail.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

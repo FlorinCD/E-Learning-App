@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/astar.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">A* star algorithm</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="par0">
+                            The A* (A-star) algorithm is a widely used pathfinding and graph traversal algorithm that finds the shortest path between two points on a graph, taking into account both the cost of reaching the destination and an estimate of the remaining cost. It was introduced by Peter Hart, Nils Nilsson, and Bertram Raphael in 1968.
+                        </p>
+                        <p class="par0">
+                            The algorithm works by maintaining a priority queue of nodes to explore, prioritizing nodes with a lower total cost. The total cost for each node is the sum of two components:
+                        </p>
+                        <p class="par1">
+                            G(n): The cost of the path from the start node to the current node.
+                        </p>
+                        <p class="par1">
+                            H(n): The heuristic estimate of the cost from the current node to the goal node.
+                        </p>
+                        <p class="par0">
+                            The sum of these two components is denoted as <span class="highlightText">f(n) = G(n) + H(n)</span>. The A* algorithm selects nodes to explore based on the lowest f(n) value. Here's a step-by-step overview of the A* algorithm:
+                        </p>
+
+                        <h4>1. Initialize:</h4>
+                        <ul>
+                            <li class="par1">Set the start node and add it to the open list (priority queue) with <span class="highlightText">f(n) = G(n) + H(n)</span> as the priority. Set <span class="highlightText">G</span> value for the start node to 0.</li>
+                        </ul>
+                        <h4>2. While the open list is not empty:</h4>
+                        <ul>
+                            <li class="par1">Select the node with the lowest <span class="highlightText">f(n)</span> value from the open list. This node is the current node.</li>
+                            <li class="par1">If the current node is the goal: The algorithm has found the shortest path, and the path can be reconstructed from the start node to the goal node.</li>
+                            <li class="par1">Else, expand the current node: For each neighboring node:</li>
+                            <li class="par1">Calculate <span class="highlightText">G</span> value for the neighbor.</li>
+                            <li class="par1">If the neighbor is not in the open list, calculate <span class="highlightText">G</span> valueH</span> value and add it to the open list with <span class="highlightText">f(n)=G(n)+H(n)</span>.</li>
+                            <li class="par1">If the neighbor is already in the open list and the new <span class="highlightText">G</span> value is lower, update <span class="highlightText">G</span> value and recalculate <span class="highlightText">f(n)</span>.</li>
+                        </ul>
+                        <h4>3. If the open list is empty: </h4>
+                        <ul>
+                            <li class="par1">The algorithm has explored all possible paths, and there is no path from the start node to the goal node.</li>
+                            <li class="par1">A* is considered optimal and complete, meaning it will always find the shortest path if one exists and will terminate if no path is available. The efficiency of A* heavily relies on the quality of the heuristic function <span class="highlightText">(H(n))</span>, which should be admissible (never overestimating the true cost) for the algorithm to guarantee optimality.</li>
+                        </ul>
+                        <li class="infoHowtoUse">Every cell from the grid below represents a node which is connected to the node next to itself up, down, left, right. You can set a point to start, a target and even obstacles to visualize the A* star algorithm and its use in search path algorithms. </li>
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        <div class="astarImg">
+                        </div>
+                    </div>
+
+                    <div class="col-md">
+                        <div class="bfs-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container" id="container-buttons">
+                <div class="row" id="weight-value-row">
+                    <div class="col-md-2 col-sm-4 col-xs-5">
+                        <p class="weight-text">Weight value:</p>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-5">
+                        <input type="text" id="weight-value" name="value" placeholder="1" maxlength="3">
+                    </div>           
+                </div>
+                <div class="row" id="row-button">
+                    <div class="col-md-12 col-sm col-xs">
+                        <ul class="button-list">
+                            <button class="astar-button" id="button-start">Visualize</button>
+                            <button class="astar-button" id="button-obstacles" style="animation-delay:0.07s">Walls</button>
+                            <button class="astar-button" id="button-weights" style="animation-delay:0.21s">Weights</button>
+                            <button class="astar-button" id="button-startpoint" style="animation-delay:0.14s">Start</button>
+                            <button class="astar-button" id="button-searchpoint" style="animation-delay:0.14s">Finish</button>
+                            <button class="astar-button" id="button-clear" style="animation-delay:0.21s">Clear</button>
+                            <div class="maze-dropdown">
+                                <button class="maze-button" id="button-maze" style="animation-delay:0.21s">Maze</button>
+                                <div class="dropdown-content">
+                                    <button id="button-random-maze">Random Maze</button>
+                                    <button id="button-recursiveD-maze">Recursive Divison Maze</button>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" id="row-grid-container">
+                    <div class="col-md-5 col-xs-3">
+                        <div class="grid-container" id="grid-container"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="par2">The time and space complexity of the A* algorithm depends on various factors, including the characteristics of the problem instance, the efficiency of the heuristic function, and the underlying data structures used for implementation. Here, I'll provide a general analysis of the time and space complexity:</p>
+                        <h4>Time Complexity</h4>
+                        <ul>
+                            <li class="par0">
+                                The time complexity of A* is typically expressed in terms of the number of nodes expanded during the search. In the worst case, A* explores all reachable nodes. Let:
+                            </li>
+                            <li class="par1">
+                                <span class="highlightText">b</span> be the branching factor of the search tree (average number of successors per node),
+                            </li>
+                            <li class="par1">
+                                <span class="highlightText">d</span> be the depth of the optimal solution
+                            </li>
+                            <li class="par1">
+                                <span class="highlightText">m</span> be the maximum depth of the state space.
+                            </li>
+                            <li class="par0">
+                                In the worst case, A* explores <span class="highlightText">O(b<sup class="suphighlightText">d</sup>)</span> nodes. However, the presence of the heuristic function can significantly improve the efficiency. If the heuristic is admissible (never overestimates the true cost), A* is guaranteed to expand the fewest number of nodes among all algorithms with the same or better time complexity.
+                            </li>
+                        </ul>
+                        <h4>Space Complexity (Memory)</h4>
+                        <p class="par1">
+                            The space complexity of A* is mainly determined by the data structures used to store the open and closed lists, as well as any auxiliary data structures. In the worst case, the space complexity is also related to the number of nodes expanded.
+                        </p>
+                        <ul>
+                            <li class="par1">
+                                A* typically uses a priority queue (e.g., binary heap, Fibonacci heap) for the open list. The space complexity for the open list is <span class="highlightText">O(b<sup class="suphighlightText">d</sup>)</span> in the worst case.
+                            </li>
+                            <li class="par1">
+                                The closed list, which stores nodes that have been expanded, also contributes to space complexity. In the worst case, this can also be <span class="highlightText">O(b<sup class="suphighlightText">d</sup>)</span>.
+                            </li>
+                            <p class="par0">
+                                In practice, the space complexity can be reduced by using various optimizations, such as limiting the depth of the search, using iterative deepening, or employing techniques like bidirectional search.
+                            </p>
+                        </ul>
+                        <h4>Heuristic Function Impact:</h4>
+                        <p class="par0">
+                            The efficiency of the heuristic function <span class="highlightText">(H(n))</span> is crucial. A good heuristic can significantly reduce both time and space complexity by guiding the search toward the goal more effectively. However, a poor heuristic may result in the algorithm exploring unnecessary nodes, impacting both time and space requirements.
+                        </p>
+                        <p class="par0">
+                            In summary, while the worst-case time and space complexity of A* can be relatively high, the algorithm's performance is often significantly improved by a well-designed heuristic function. Real-world applications benefit from careful consideration of the problem characteristics and the choice of heuristic to achieve efficient and effective pathfinding.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/astar.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

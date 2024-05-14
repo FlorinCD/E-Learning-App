@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/insertionSort.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Insertion Sort</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="par0">
+                            
+    Insertion Sort is a straightforward in-place sorting algorithm that builds the sorted array by gradually inserting each element into its correct position. It works well for small datasets or nearly sorted data.
+                        </p>
+                        <h4>1. Initialization</h4>
+                        <ul>
+                            <li class="par1">Assume the first element is sorted (considered as a sorted subarray).</li>
+                        </ul>
+                        <h4>2. Iterative Comparison</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">For each unsorted element, compare it with elements in the sorted subarray, moving elements greater than it to the right.</li>
+                        </ul>
+                        <h4>3. Insertion</h4>
+                        <ul>
+                            <li class="par1">Insert the current element into its correct position in the sorted subarray.</li>
+                        </ul>
+                        <h4>4. Repeat</h4>
+                        <ul>
+                            <li class="par0">Repeat these steps until the entire array is sorted.</li>
+                        </ul>
+                        <h4>About Insertion Sort</h4>
+                        <p class="par0">
+                            Insertion Sort is an in-place algorithm, meaning it doesn't require additional memory. While it is not the most efficient for large datasets, it performs well on small datasets or partially sorted data. The algorithm has a time complexity of O(n^2) in the worst case but can be efficient for small or nearly sorted arrays.
+                        </p>
+                        <li class="infoHowtoUse"></li>
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        <div class="sortImgCode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container" id="container-buttons">
+                <div class="row" id="row-button">
+                    <div class="col-md-12 col-xs-6">
+                        <ul class="button-list" id="button-list-container">
+                            <button class="sorting-button" id="button-start">Sort</button>
+                            <button class="sorting-button" id="button-addArray">Generate</button>
+                            <div class="rangeWrapper">
+                                <p class="textRangeWrapper">Speed</p>
+                                <input type="range" id="inputRange" min="1" max="250" value="10">
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" id="insertionSortVisualization">
+                    
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Time complexity</h4>
+                        <ul>
+                            <li class="par1">Insertion Sort's average-case time complexity is also O(n^2), making it less efficient than more advanced sorting algorithms like Merge Sort or QuickSort for large datasets. Despite its higher time complexity, Insertion Sort has its merits for small datasets or partially sorted data due to its simplicity and low overhead.</li>
+                        </ul>
+                        <h4>Space Complexity (Memory)</h4>
+                        <ul>
+                            <li class="par1">The space complexity of the Insertion Sort algorithm is O(1), indicating that it uses a constant amount of extra space regardless of the input size. Insertion Sort is an in-place sorting algorithm, meaning it doesn't require additional memory proportional to the size of the input.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/insertionSort.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

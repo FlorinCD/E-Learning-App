@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/hashmap.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Hashmap</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="par0">
+                            A hashmap, also known as a hash table, is a data structure used for storing key-value pairs. It provides efficient insertion, deletion, and lookup operations. Here's how it works:
+                        </p>
+                        <p class="par0">Representation of the concept of a hashmap:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" id="squares-wrapper">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>1. Hash Function:</h4>
+                        <ul>
+                            <li class="par1">Hashmaps use a hash function to map keys to indexes in an array. The hash function takes a key as input and computes a hash code, which is typically an integer. This hash code is then used to determine the index in the array where the corresponding value will be stored.</li>
+                        </ul>
+                        <h4>2. Array:</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Hashmaps internally use an array to store the key-value pairs. Each index in the array corresponds to a "bucket" where one or more key-value pairs can be stored.</li>
+                        </ul>
+                        <h4>3. Collision Handling:</h4>
+                        <ul>
+                            <li class="par1">Since multiple keys may hash to the same index due to the finite size of the array and the nature of hash functions, collisions can occur. Hashmaps implement strategies to handle collisions. One common approach is to use a linked list or another data structure at each bucket to store multiple key-value pairs that hash to the same index. Modern implementations may use more advanced techniques like open addressing or separate chaining with balanced trees.</li>
+                        </ul>
+                        <h4>4. Efficiency:</h4>
+                        <ul>
+                            <li class="par0">Hashmaps offer constant-time average-case complexity for insertion, deletion, and lookup operations (O(1)). However, in the worst-case scenario where there are many collisions, the performance may degrade to O(n), where n is the number of key-value pairs in the map.</li>
+                        </ul>
+                        <h4>5. Key Uniqueness:</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">In most hashmap implementations, each key must be unique. If you try to insert a key-value pair with a key that already exists in the map, the existing value associated with that key will typically be replaced with the new value.</li>
+                        </ul>
+                        <ul>
+                            <li class="par1">Overall, hashmaps are widely used due to their efficiency in storing and retrieving key-value pairs, making them essential in computer science and software engineering for tasks like caching, indexing, and implementing associative arrays or dictionaries.</li>
+                        </ul>
+                        <li class="infoHowtoUse"></li>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/hashmap.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

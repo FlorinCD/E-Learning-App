@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/problemSuccess.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="container">
+                <div class="wrapper-full">
+                    <div class="row">
+                        <div class="col">
+                            <div class="wrapper-title">
+                                <div class="letter-a0"></div>
+                                <div class="letter-c0"></div>
+                                <div class="letter-c1"></div>
+                                <div class="letter-e0"></div>
+                                <div class="letter-p0"></div>
+                                <div class="letter-t0"></div>
+                                <div class="letter-e1"></div>
+                                <div class="letter-d0"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="wrapper-text">
+                                <p class="content-text-success">The submission has passed all the testcases successfully!</p>
+                            </div>
+                            
+                            <div class="wrapper-text-time">
+                                <div class="wrapper-runtime">
+                                    <div class="runtime-img"></div>
+                                    <p class="runtime-text">Runtime:</p>
+                                </div>
+                                <p class="content-text-time">The current submission has a runtime of <span class="special-text">{{ run_time }}ms</span>.</p>
+                            </div>
+                                
+                            <div class="wrapper-text-memory">
+                                <div class="wrapper-memory">
+                                    <div class="memory-img"></div>
+                                    <p class="memory-text">Memory:</p>
+                                </div>
+                                <p class="content-text-memory">The current submission has a memory usage of <span class="special-text">{{ memory_usage }}MB</span>.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="wrapper-chart">
+                                <div class="char-title">
+                                    <p class="chart-title-text">Runtime chart distribution</p>
+                                    <p class="chart-title-text">Top:</p>
+                                    <p class="chart-title-text" id="top-chart">{{ top_percent }}%</p>
+                                </div>
+                                <div class="wrapper-chart-child" id="chart">
+                                
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="../static/javascript/problemSuccess.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

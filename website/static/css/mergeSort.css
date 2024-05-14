@@ -1,0 +1,740 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.box{
+    /*background-color: rgb(40, 8, 15);*/
+    padding-top: 5%;
+    background-color: rgb(254, 254, 254);
+    height: 150px;
+}
+.navbar{
+    background-color: rgb(44, 42, 42);
+}
+
+.nav-link{
+    color: rgb(177, 172, 172);
+}
+.nav-link:hover {
+    color: rgb(216, 216, 216);
+}
+
+.navbar-brand{
+    background-image: url('../icons/algorithm0.png');
+    background-size: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.navbar-nav{
+    width: 40%;
+}
+
+.nav-item{
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: rgb(29, 24, 24);
+    /*height: 2000px;*/
+}
+
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInUpOpacity {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+@keyframes fadeInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+.page-header{
+    color: #7b7777;
+    font-size: 26px;
+    font-weight: 100;
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fadeInUp 2s ease 0.1s forwards;
+    text-align: center;
+    margin: 0;
+    display: block;
+    float:inherit;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+
+}
+
+h4{
+    color: #ffbc65;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.par0{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*center*/
+}
+.par1{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*left*/
+}
+.par2{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*left*/
+    padding-left: 2%;
+}
+.par3{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*left*/
+}
+
+.sortColumn{
+    height: 5px;
+    width: 18px;
+    background-color: #34b4eb;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.rangeWrapper{
+    height: 100%;
+    width: 100%;
+    margin: 1%;
+}
+
+.textRangeWrapper{
+    margin-left: 4%;
+    text-align: left;
+    font-size: 18px;
+    color: #919191;
+    text-shadow: 2px 2px 1px  black;
+}
+
+@keyframes changeTraverseColumnColor {
+    0% {
+      opacity: 0;
+      background-color: #34b4eb;
+    }
+    50% {
+      background-color: rgb(187, 80, 22);
+    }
+    100% {
+      background-color: rgb(225, 131, 0);
+      opacity: 1;
+    }
+  }
+
+.sortColumnTraverse{
+    height: 5px;
+    width: 18px;
+    background-color: #34b4eb;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 1px;
+    padding-right: 1px;
+    animation: changeTraverseColumnColor 1.5s ease 0.1s forwards;
+}
+
+#SortVisualization{
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+.suphighlightText {
+    font-size: 22px;
+    color: #ffbc65;
+    font-family: KaTeX_Math;
+    font-style: italic;
+    bottom: 3px;
+}
+.highlightText{
+    font-size: 22px;
+    color: #ffbc65;
+    font-family: KaTeX_Math;
+    font-style: italic;
+}
+
+.sorting-button{
+    position:relative;
+    background-color: #636363;
+    text-decoration: none;
+    margin: 2% 1% 2% 1%;
+    padding-top: 1%;
+    padding-bottom: 3%;
+    color: rgb(208, 208, 208);
+    height: 50px;
+    width: 130px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    display: grid;
+    }
+.sorting-button:hover {
+    color: rgb(208, 208, 208);
+    background-color: rgb(64, 64, 64);
+}
+
+#targetContentWrapper{
+    display: flex;
+}
+
+#targetInput{
+    height: 50px;
+    width: 200px;
+    color: rgb(202, 202, 202);
+    padding-left: 6%;
+    margin-left: 20%;
+    margin-top: 1%;
+    font-size: 18px;
+
+}
+
+.button-list{
+    display: flex;
+    height: 90px;
+}
+
+@keyframes markedCellAnimation {
+    0% {
+        opacity: 0;
+        background-color: rgb(104, 104, 255);
+    }
+    50%{
+        background-color: rgb(102, 194, 255);
+        transform: scale(0.8);
+    }
+    75%{
+        background-color: rgb(104, 0, 114);
+        /*transform: scale(1.2);*/
+        border-radius: 20%;
+    }
+    100% {
+        background-color: rgb(112, 0, 172);
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+  @keyframes bgcolorchange {
+    0% {
+      background-color: #03fcb6;
+    }
+    25% {
+      background-color: #70ffe0;
+    }
+    50% {
+      background-color: #57ffe8;
+    }
+    75% {
+      background-color: #56cacc;
+    }
+    100% {
+      background-color: #72becf;
+    }
+  }
+
+#addArray-row{
+    display: flex;
+    margin-top: 4%;
+}
+
+@keyframes fadeInUpOpacity {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+.sortImgCode{
+    background-image: url(../images/mergesort.png);
+    background-size: 100% 100%;
+    background-color: #8cd0f7;
+    height: 350px;
+    width: 400px;
+    margin-left: 5%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fadeInUpOpacity 1s ease 0.7s forwards;
+}
+
+footer{  
+    background-color: rgb(44, 42, 42);
+    height: 120px;
+}
+
+#col-copyright{
+    margin-top: 20px;
+}
+
+.copyright{
+    color: rgb(122, 122, 122);
+    padding-left: 5%;
+    padding-bottom: 2%;
+    padding-top: 10%;
+    font-size: 16px;
+}
+
+#copyright{
+    height: 100px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.infoHowtoUse{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 0%;
+    margin-right: 0%;
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; 
+    list-style: none;
+}
+
+@media screen and (min-width: 500px) {
+    .sortImgCode{
+        height: 280px;
+        width: 320px;
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 4px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 4px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+@media screen and (min-width: 548px) {
+    .sortImgCode{
+        height: 280px;
+        width: 320px;
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 4px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 4px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .sortImgCode{
+        height: 300px;
+        width: 340px;
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 6px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 6px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .sortImgCode{
+        height: 180px;
+        width: 200px;
+        margin-top: 0%;
+        margin-bottom: 0%;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 6px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 6px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .sortImgCode{
+        height: 180px;
+        width: 200px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 8px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 8px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 0.5%;
+        padding-bottom: 1.5%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+@media screen and (min-width: 820px) {
+    .sortImgCode{
+        height: 220px;
+        width: 240px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 8px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 8px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 0.5%;
+        padding-bottom: 1.5%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+@media screen and (min-width: 880px) {
+    .sortImgCode{
+        height: 220px;
+        width: 240px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 8px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 8px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 0.5%;
+        padding-bottom: 1.5%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+@media screen and (min-width: 960px) {
+    .sortImgCode{
+        height: 260px;
+        width: 280px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 10px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 10px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 0.5%;
+        padding-bottom: 1.5%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+@media screen and (min-width: 1050px) {
+    .sortImgCode{
+        height: 280px;
+        width: 310px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 12px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 12px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 0.5%;
+        padding-bottom: 1.5%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    .sortImgCode{
+        height: 280px;
+        width: 310px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 12px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 12px;
+    }
+    #SortVisualization{
+        margin-left: 7%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 0.5%;
+        padding-bottom: 1.5%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+@media screen and (min-width: 1250px) {
+    .sortImgCode{
+        height: 320px;
+        width: 360px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 17px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 17px;
+    }
+    #SortVisualization{
+        margin-left: 4%
+    }
+}
+@media screen and (min-width: 1400px) {
+    .sortImgCode{
+        height: 370px;
+        width: 400px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 18px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 18px;
+    }
+    #SortVisualization{
+        margin-left: 4%
+    }
+}
+@media screen and (min-width: 1500px) {
+    .sortImgCode{
+        height: 380px;
+        width: 450px;
+    }
+    .sortColumn{
+        height: 5px;
+        width: 18px;
+    }
+    .sortColumnTraverse{
+        height: 5px;
+        width: 18px;
+    }
+    #SortVisualization{
+        margin-left: 4%
+    }
+    .sorting-button{
+        position:relative;
+        background-color: #636363;
+        text-decoration: none;
+        margin: 2% 1% 2% 1%;
+        padding-top: 0.5%;
+        padding-bottom: 1.5%;
+        color: rgb(208, 208, 208);
+        height: 40px;
+        width: 150px;
+        box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+        border: none;
+        font-size: 18px;
+        text-align: center;
+        display: grid;
+    }
+}
+
+
+
+

@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/quickSort.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Quick Sort</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="par0">
+                            
+    QuickSort is a fast, in-place sorting algorithm that efficiently divides and conquers by selecting a pivot, partitioning the array, and recursively sorting subarrays. While its average-case performance is excellent, the worst-case time complexity is O(n^2) when pivots are poorly chosen.
+    QuickSort is a sorting algorithm that follows a divide-and-conquer strategy. Here's a concise explanation:
+                        </p>
+                        <h4>1. Choose a Pivot</h4>
+                        <ul>
+                            <li class="par1">Select a pivot element from the array. The choice of pivot can affect the efficiency of the algorithm, and there are various strategies for selecting a pivot (e.g., selecting the first element, the last element, or a random element).</li>
+                        </ul>
+                        <h4>2. Partitioning</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Rearrange the elements in the array so that all elements less than the pivot are moved to its left, and all elements greater than the pivot are moved to its right. The pivot itself is in its final sorted position.</li>
+                        </ul>
+                        <h4>3. Recursion</h4>
+                        <ul>
+                            <li class="par1">Apply the quicksort algorithm recursively to the left and right sub-arrays. The base case for the recursion is when the sub-array has zero or one element, as such arrays are already sorted.</li>
+                        </ul>
+                        <h4>4. Combine</h4>
+                        <ul>
+                            <li class="par0">As the recursive calls return, the sorted sub-arrays are combined to produce the final sorted array.</li>
+                        </ul>
+                        <h4>About Quick Sort</h4>
+                        <p class="par0">
+                            Keep in mind that the efficiency of quicksort depends on the choice of pivot and the implementation details, and it can have a time complexity of O(n log n) on average. However, in the worst case, it can degrade to O(n^2), especially if the pivot selection or partitioning strategy is not well-chosen. Various optimizations, such as using a randomized pivot selection or choosing a median-of-three strategy, can be applied to mitigate some of these issues.
+                        </p>
+                        <li class="infoHowtoUse"></li>
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        <div class="sortImgCode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container" id="container-buttons">
+                <div class="row" id="row-button">
+                    <div class="col-md-12 col-xs-6">
+                        <ul class="button-list" id="button-list-container">
+                            <button class="sorting-button" id="button-start">Sort</button>
+                            <button class="sorting-button" id="button-addArray">Generate</button>
+                            <div class="rangeWrapper">
+                                <p class="textRangeWrapper">Speed</p>
+                                <input type="range" id="inputRange" min="1" max="250" value="10">
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row" id="SortVisualization">
+                    
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Time complexity</h4>
+                        <ul>
+                            <li class="par1">The time complexity of QuickSort is generally expressed using Big O notation. In the average and best cases, QuickSort has a time complexity of O(n log n), making it very efficient for large datasets.
+                                In practice, QuickSort is often faster than other O(n log n) algorithms, such as Merge Sort, due to its lower constant factors and efficient cache usage. The average-case time complexity of O(n log n) makes it a popular choice for sorting large datasets.
+                            </li>
+                        </ul>
+                        <h4>Space Complexity (Memory)</h4>
+                        <ul>
+                            <li class="par1">The space complexity of the iterative version of QuickSort is generally expressed as O(log n), similar to the recursive version. This space complexity arises from the use of a stack to simulate the function call stack during the iterative process.
+
+                                In the iterative implementation, a stack is used to keep track of the subarrays that still need to be processed. The size of the stack depends on the maximum depth of the recursion tree, which, in the average case, is logarithmic in the size of the input array (O(log n)).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/quickSort.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

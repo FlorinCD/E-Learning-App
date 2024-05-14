@@ -1,0 +1,385 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.navbar{
+    background-color: rgb(44, 42, 42);
+}
+
+.nav-link{
+    color: rgb(177, 172, 172);
+}
+.nav-link:hover {
+    color: rgb(216, 216, 216);
+}
+
+.navbar-brand{
+    background-image: url('../icons/algorithm0.png');
+    background-size: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.navbar-nav{
+    width: 40%;
+}
+
+.nav-item{
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: rgb(29, 24, 24);
+    /*height: 1000px;*/
+}
+
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+@keyframes fadeInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+.page-header{
+    color: #7b7777;
+    font-size: 26px;
+    font-weight: 100;
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fadeInUp 2s ease 0.1s forwards;
+    text-align: center;
+    margin: 0;
+    display: block;
+    float: right;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+
+}
+
+#first-container{
+    margin-top: 4%;
+}
+
+#profile-row{
+    height: 700px;
+}
+
+#profile-area0{
+    margin: 1% 2% 1% 2%;
+    height: 600px;
+    width: 400px;
+    background-color: rgb(77, 77, 77);
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+}
+
+#profile-area1{
+    margin: 1% 2% 1% 2%;
+    height: 600px;
+    width: 800px;
+    background-color: rgb(123, 123, 123);
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+}
+
+#name-icon-row{
+    height: 200px;
+}
+
+#user-wrapper{
+    display: flex;
+}
+
+.user-image{
+    margin: 15% 10% 10% 10%;
+    background-size: 100% 100%;
+    background-image: url(../images/human.png);
+    height: 120px;
+    width: 120px;
+}
+.user-name{
+    margin: 25% 10% 10% 10%;
+    font-size: 28px;
+    color: rgb(233, 167, 0);
+    text-shadow: 1px 1px 2px rgba(0,0,0,.8);
+}
+
+#rank-row{
+    height: 140px;
+}
+
+#rank-wrapper{
+    display: flex;
+}
+
+.user-skill{
+    margin: 12% 10% 5% 20%;
+    background-size: 100% 100%;
+    background-image: url(../images/user-rank.png);
+    height: 50px;
+    width: 50px;
+}
+.rank{
+    margin: 15% 10% 5% 10%;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    /*text-shadow: 1px 1px 2px rgba(0,0,0,.8);*/
+}
+.rank span{
+    color: rgb(168, 168, 168);
+}
+
+.skill-categories{
+    margin: 15% 10% 5% 5%;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+.skill-categories span{
+    color: rgb(168, 168, 168);
+}
+
+.line0{
+    height: 1px;
+    width: 100%;
+    background-color: rgb(29, 24, 24);
+}
+.line1{
+    height: 1.5px;
+    width: 100%;
+    background-color: rgb(29, 24, 24);
+}
+
+#skill-row{
+    margin: 0%;
+}
+
+#skill-wrapper{
+    display: flex;
+}
+
+.user-rank{
+    display: flex;
+    align-items: flex-end;
+    margin: 5% 2% 5% 20%;
+}
+
+.user-rank-c0{
+    margin-right: 10%;
+    height: 0px;
+    width: 20px;
+    background-color: rgb(37, 37, 37);
+    display: inline-block;
+    box-shadow: 0.5px 0.5px 1px 0.5px rgba(0,0,0,.8);
+    animation: columns-animation0 1.5s ease 0.05s forwards;
+}
+.user-rank-c1{
+    margin-right: 10%;
+    height: 0px;
+    width: 20px;
+    background-color: rgb(37, 37, 37);
+    display: inline-block;
+    box-shadow: 0.5px 0.5px 1px 0.5px rgba(0,0,0,.8);
+    animation: columns-animation1 1.5s ease 0.05s forwards;
+}
+.user-rank-c2{
+    margin-right: 10%;
+    height: 0px;
+    width: 20px;
+    background-color: rgb(37, 37, 37);
+    display: inline-block;
+    box-shadow: 0.5px 0.5px 1px 0.5px rgba(0,0,0,.8);
+    animation: columns-animation2 1.5s ease 0.05s forwards;
+}
+
+#categories-wrapper{
+    max-height: 125px;
+    display: flex;
+    border: 1px solid black;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#categories-wrapper :hover{
+    overflow-x: auto;
+}
+
+#categories-wrapper::-webkit-scrollbar{
+    width: 0;
+}
+
+#categories-wrapper .item{
+    height: 50px;
+    min-width: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgb(168, 168, 168);
+    margin-right: 2%;
+}
+
+.horizontal-scroll-wrapper{
+  position:relative;
+  display:block;
+  top:0;
+  left:0;
+  width:80px;
+  max-height:350px;
+  margin:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  transform:rotate(-90deg) translateY(-80px);
+  transform-origin:right top;
+  scrollbar-width: none;
+}
+.horizontal-scroll-wrapper > div{
+  display:block;
+  padding:5px;
+  background:#cab;
+  transform:rotate(90deg);
+  transform-origin: right top;
+}
+
+
+.squares{
+  padding:60px 0 0 0;
+}
+
+.squares > div{
+  width:60px;
+  height:40px;
+  margin:10px;
+}
+
+.rectangles{
+  top:100px;
+  padding:100px 0 0 0;
+}
+.rectangles > div{
+  width:140px;
+  height:40px;
+  margin:80px 10px;
+  padding:5px;
+  background:rgb(77, 77, 77);
+  transform:rotate(90deg) translateY(80px);
+  transform-origin: right top;
+}
+
+@keyframes columns-animation0{
+    0%{
+        height: 5px;
+    }
+    100%{
+        height: 40px;
+    }
+}
+@keyframes columns-animation1{
+    0%{
+        height: 5px;
+    }
+    100%{
+        height: 60px;
+    }
+}
+@keyframes columns-animation2{
+    0%{
+        height: 5px;
+    }
+    100%{
+        height: 50px;
+    }
+}
+
+
+@keyframes typing{
+    from{
+        opacity: 0;
+    }    
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes tick-animation{
+    to {
+        opacity: 1;
+        transform: translateX(-4rem);
+      }
+}
+
+footer{  
+    background-color: rgb(44, 42, 42);
+    height: 120px;
+}
+
+#col-copyright{
+    margin-top: 20px;
+}
+
+.copyright{
+    color: rgb(122, 122, 122);
+    padding-left: 5%;
+    padding-bottom: 2%;
+    padding-top: 10%;
+    font-size: 16px;
+}
+
+#copyright{
+    height: 100px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+
+@media screen and (max-width: 300px) {
+}
+
+@media screen and (min-width: 400px) {
+}
+@media screen and (min-width: 500px) {
+    
+}
+@media screen and (min-width: 700px) {
+
+
+}
+
+@media screen and (max-width: 766px) {
+}
+
+@media screen and (min-width: 770px) {
+
+
+}
+
+@media screen and (min-width: 992px) {
+
+}
+
+@media screen and (min-width: 1100px){
+
+}
+
+@media screen and (min-width: 1200px) {
+
+
+}
+
+@media screen and (min-width:1280){
+
+}
+
+@media screen and (min-width: 1390px) {
+
+}

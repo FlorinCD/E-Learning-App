@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/arrays.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Arrays</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="par0">
+                            
+Arrays are fundamental data structures in programming used to store collections of elements. They are especially useful when you need to work with a fixed-size collection of elements of the same data type. Diving deeper into arrays the following information can be said about them.
+                        </p>
+                        <p class="par0">Representation of an array of integers:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" id="squares-wrapper">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>1. Contiguous Memory Allocation:</h4>
+                        <ul>
+                            <li class="par1">Arrays are typically stored in contiguous memory locations. This means that all elements of the array are stored next to each other in memory. This characteristic allows for efficient random access because the memory address of any element can be calculated using the base address of the array and the index of the element.</li>
+                        </ul>
+                        <h4>2. Direct Access:</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Arrays support direct access to elements using an index. This means that you can access any element in the array with constant-time complexity <span class="highlightText">O(1)</span>. The formula to calculate the memory address of an element at index i in an array is often <span class="highlightText">base_address + (i * size_of_element)</span>.</li>
+                        </ul>
+                        <h4>3. Fixed Size vs. Dynamic Arrays:</h4>
+                        <ul>
+                            <li class="par1">In many programming languages, arrays have a fixed size, meaning you need to specify the number of elements when you declare the array, and the size cannot be changed later. However, dynamic arrays, such as those found in Python (list) or Java (ArrayList), allow resizing. Dynamic arrays automatically resize themselves when the number of elements exceeds the capacity of the array, typically by doubling the underlying array's size.</li>
+                        </ul>
+                        <h4>4. Cache Locality:</h4>
+                        <ul>
+                            <li class="par0">Arrays exhibit good cache locality, which means that accessing elements that are closer together in memory tends to be faster due to how modern computer architectures utilize caching. Because array elements are stored contiguously, accessing neighboring elements often results in better cache utilization and faster access times compared to non-contiguous data structures.</li>
+                        </ul>
+                        <h4>5. Memory Efficiency:</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Arrays are memory-efficient data structures, especially when dealing with primitive data types. Each element in an array occupies a fixed amount of memory, and the memory overhead is minimal. However, in languages that support arrays of objects, each element typically holds a reference to the actual object, which can lead to additional memory overhead.</li>
+                        </ul>
+                        <h4>6. Multi-dimensional Arrays:</h4>
+                        <ul>
+                            <li class="par1">Arrays can have multiple dimensions, forming matrices or higher-dimensional structures. Multi-dimensional arrays are often implemented as arrays of arrays or using a flattened representation where a single array is used to represent the entire structure, and indexing is computed accordingly.</li>
+                        </ul>
+                        <h4>7. Performance Considerations:</h4>
+                        <ul>
+                            <li class="par1">While arrays provide fast access to elements, certain operations like insertion and deletion can be inefficient, especially in fixed-size arrays. Insertions or deletions in the middle of the array require shifting elements, resulting in a time complexity of <span class="highlightText">O(n)</span>, where n is the number of elements in the array. Dynamic arrays mitigate this by resizing when needed, but resizing operations also have a time complexity of <span class="highlightText">O(n)</span>.</li>
+                        </ul>
+                        <li class="infoHowtoUse"></li>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/arrays.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

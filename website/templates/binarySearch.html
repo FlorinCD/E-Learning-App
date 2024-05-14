@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/binarySearch.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Binary Search</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="par0">
+                            Binary search is an efficient algorithm for finding an element in a sorted collection (array or list) by repeatedly dividing the search interval in half.
+                        </p>
+                        <h4>1. Initialization</h4>
+                        <ul>
+                            <li class="par1">Start with the entire collection.</li>
+                            <li class="par1">Set two pointers, <span class="highlightText">low</span> and <span class="highlightText">high</span>, to the first and last elements of the collection, respectively.</li>
+                        </ul>
+                        <h4>2. Search Process</h4>
+                        <ul>
+                            <li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li>
+                            <li class="par1">Compare the element at the middle index with the target element.</li>
+                            <li class="par2">If the middle element is equal to the target, the search is successful, and the index is returned.</li>
+                            <li class="par2">If the middle element is greater than the target, update <span class="highlightText">high</span> to <span class="highlightText">mid</span> - 1 and repeat the search in the left half.</li>
+                            <li class="par2">If the middle element is less than the target, update <span class="highlightText">low</span> to <span class="highlightText">mid</span> + 1 and repeat the search in the right half.</li>
+                        </ul>
+                        <h4>3. Termination</h4>
+                        <ul>
+                            <li class="par1">Repeat the process until the <span class="highlightText">low</span> pointer is greater than the <span class="highlightText">high</span> pointer.</li>
+                            <li class="par1">If the element is not found, return a special value indicating the absence of the target in the collection.</li>
+                        </ul>
+
+                        <h4>Usage of Binary Search</h4>
+                        <p class="par0">
+                            Binary search, known for its O(log n) time complexity, is widely applied across computer science and diverse real-world scenarios. Its efficiency in swiftly locating elements in sorted data finds applications in databases, file systems, spell-checking algorithms, game development, network routing, genetics, economics, telecommunications, online shopping, robotics, and medical imaging. The algorithm's ability to optimize search operations makes it a crucial tool in a broad spectrum of fields.
+                        </p>
+                        <li class="infoHowtoUse"></li>
+                    </div>
+                    <div class="col-md-2 col-xs-8">
+                        <div class="bsImgCode">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container" id="container-buttons">
+                <div class="row" id="addArray-row">
+                    <div class="col-md-3 col-sm-4 col-xs-5">
+                        <p class="weight-text">Add custom array:</p>
+                    </div>
+                    <div class="col-md-8 col-sm-4 col-xs-5">
+                        <input type="text" id="addArrayInput" name="value" placeholder="ex: 0, 2, 6, 10, 12, 24, 48, 69" maxlength="60">
+                    </div>   
+                </div>
+                <div class="row" id="addTarget-row">
+                    <div class="col-md-3 col-sm-4 col-xs-5">
+                        <p class="weight-text">Add target:</p>
+                    </div>
+                    <div class="col-md-1 col-sm-4 col-xs-5">
+                        <input type="text" id="addTargetInput" name="value" placeholder="" maxlength="2">
+                    </div>
+                    <div class="col-md-2">
+                        <div id="targetInput">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="row-button">
+                    <div class="col-md-12 col-xs-6">
+                        <ul class="button-list" id="button-list-container">
+                            <button class="binarySearch-button" id="button-start">Visualize</button>
+                            <button class="binarySearch-button" id="button-addArray">AddArray</button>
+                            <button class="binarySearch-button" id="button-addTarget">AddTarget</button>
+                            <button class="binarySearch-button" id="button-clear">Clear</button>
+                            <button class="binarySearch-button" id="button-random">Random</button>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" id="binarySearchVisualization">
+
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>Time complexity</h4>
+                        <ul>
+                            <li class="par1">Binary search has a time complexity of O(log n), where n is the number of elements in the collection. This makes it significantly faster than linear search algorithms, especially for large datasets. However, it's important to note that binary search can only be applied to sorted collections. If the collection is not sorted, a preprocessing step to sort it is required, which could affect the overall efficiency.</li>
+                        </ul>
+                        <h4>Space Complexity (Memory)</h4>
+                        <ul>
+                            <li class="par1">Binary search typically uses a constant amount of additional memory space, also known as O(1) space complexity. The space complexity of an algorithm refers to the amount of memory it uses relative to the input size.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/binarySearch.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

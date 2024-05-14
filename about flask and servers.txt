@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/60342021/how-to-process-several-http-requests-with-flask

@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/home.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container" id="container0">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="container">
+                <div class="row">
+                    <p class="page-header">Welcome to AlgoMaster</p>
+                </div>
+                <div class="row">
+                    <a href="http://127.0.0.1:5000/algorithms" class="col-md-3 col-xs-12" id="algorithms">
+                        <h2 class="algo-text-0">Vizualize Algorithms</h2>
+                        <!--h5 class="algo-text-1">Everything you need to know</h5-->
+                    </a>
+
+                    <a href="http://127.0.0.1:5000/data-structures" class="col-md-3 col-xs-12" id="data-structures">
+                        <h2 class="data-structures-text-0">Learn data structures</h2>
+                        
+                    </a>
+                    <a href="http://127.0.0.1:5000/problems" class="col-md-3 col-xs-12" id="solveproblems">
+                        <h2 class="solve-text-0">Solve problems</h2>
+                    </a>
+                </div>
+                <div class="row" id="row0">
+                    <div class="col-lg-3">
+
+                    </div>
+                    <div class="col-lg-7 col-md-8 col-sm-10 col-xs-6">
+                        <div class="par-under-links0" id="par0">
+                            <p class="typer-p0" id="typer-p0-0">Improve your skill at solving problems</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2" id="tick01"></div>
+                </div>
+                <div class="row" id="row1">
+                    <div class="col-lg-3">
+
+                    </div>
+                    <div class="col-lg-7 col-md-8 col-sm-10 col-xs-6">
+                        <div class="par-under-links1" id="par2">
+                            <p class="typer-p1" id="typer-p1-0">Get knowledge and tips</p>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-1 col-sm-2 col-xs-2" id="tick02"></div>
+                </div>
+                
+                <div class="row" id="row2">
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-7 col-md-8 col-sm-10 col-xs-6">
+                        <div class="par-under-links0" id="par4">
+                            <p class="typer-p2" id="typer-p2-0">See and understand examples</p>
+                        </div>
+                    </div>
+                    <div class="col-lg col-md-1 col-sm-2 col-xs-1" id="tick03"></div>
+                </div>
+            </div>
+
+            <div class="container" id="description">
+                <div class="row" id="row-description">
+                    <div class="col-lg-5 col-md-8 col-sm-10 col-xs-10" id="colDescription01">
+                        <h2 class="text01">How to Get Started:</h2>
+                    </div>
+                    <div class="col-lg-3 col-md-8 col-sm-10 col-xs-10" id="colDescription02">
+                        <div class="getStartedImg">
+                            <span class="childGetStartedImg">Explore our tutorials!</span>
+                        </div>
+                    </div>
+                    <ol>
+                        <li class="text02"><strong class="text03">Explore Algorithms:</strong> Navigate through our collection of visualizations and gain insights into how algorithms work.</li>
+                    
+                        <li class="text02"><strong class="text03">Solve Problems:</strong> Head over to our problem-solving section and tackle coding challenges designed to boost your problem-solving skills.</li>
+                    
+                        <li class="text02"><strong class="text03">Learn Data Structures:</strong> Explore the intricacies of various data structures through interactive guides.</li>
+                    
+                        <li class="text02"><strong class="text03">Start Coding:</strong> Ready to put your knowledge into practice? Use our interactive coding environment to experiment with algorithms and solve problems.</li>
+                    </ol>
+                
+                    <p class="text04"><strong>Join our Coding Community!</strong> Connect with like-minded learners, share your insights, and collaborate on coding challenges. Sign up/Log in to unlock additional features and track your progress.</p>
+                
+                    <p class="text04">Embark on a journey of discovery and improvement with AlgoMaster. Happy coding!</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../static/javascript/home.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
