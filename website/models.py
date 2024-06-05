@@ -16,7 +16,8 @@ class Users(db.Model, UserMixin):
     accuracy = db.Column(db.Float)
     days_submitted = db.Column(db.Integer)
     current_rank = db.Column(db.Integer)
-    time_last_submmit = db.Column(db.DateTime)
+    time_last_submit = db.Column(db.DateTime)
+    points = db.Column(db.Integer)
 
 
 """
