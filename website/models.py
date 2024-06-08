@@ -69,6 +69,7 @@ class SolvedProblems(db.Model):
     solved = db.Column(db.Text(10))  # marks if the current solution has solved the problem - Yes/No
 
 
+# delete this in the future - It is not used anymore
 class Code_Language(db.Model):
 
     __tablename__ = "code_language"

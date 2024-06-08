@@ -401,12 +401,12 @@ document.getElementById("case-submit-button").addEventListener("click", function
             // Redirect to a different page (route)
 
             console.log(data);
-            send_post_request("/problems/success", data);
+            //send_post_request("/problems/success", data); // needs to be deleted
             window.location.href = data.template;
         }
         else if(data.run == "fail"){
             console.log(data);
-            send_post_request("/problems/fail", data);
+            //send_post_request("/problems/fail", data); // needs to be deleted
             window.location.href = data.template;
         }
         // Handle the response from the server if needed
