@@ -1,0 +1,366 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.box{
+    /*background-color: rgb(40, 8, 15);*/
+    padding-top: 5%;
+    background-color: rgb(254, 254, 254);
+    height: 150px;
+}
+.navbar{
+    background-color: rgb(44, 42, 42);
+}
+
+.nav-link{
+    color: rgb(177, 172, 172);
+}
+.nav-link:hover {
+    color: rgb(216, 216, 216);
+}
+
+.navbar-brand{
+    background-image: url('../icons/algorithm0.png');
+    background-size: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.navbar-nav{
+    width: 40%;
+}
+
+.nav-item{
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: rgb(29, 24, 24);
+    /*height: 2000px;*/
+}
+
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInUpOpacity {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+@keyframes fadeInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+      opacity: 0;
+      transform: translateX(0);
+    }
+}
+
+.page-header{
+    color: #7b7777;
+    font-size: 26px;
+    font-weight: 100;
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fadeInUp 2s ease 0.1s forwards;
+    text-align: center;
+    margin: 0;
+    display: block;
+    float:inherit;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-bottom: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+
+}
+
+h4{
+    color: #ffbc65;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.par0{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*center*/
+}
+.par1{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*left*/
+}
+.par2{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*left*/
+    padding-left: 2%;
+}
+.par3{
+    color: #d4d0d0;
+    font-size: 18px;
+    text-align: left; /*left*/
+}
+
+.suphighlightText {
+    font-size: 22px;
+    color: #ffbc65;
+    font-family: KaTeX_Math;
+    font-style: italic;
+    bottom: 3px;
+}
+.highlightText{
+    font-size: 22px;
+    color: #ffbc65;
+    font-family: KaTeX_Math;
+    font-style: italic;
+}
+
+#container-title{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 70px;
+    background-color: white;
+}
+
+#row-title{
+    margin-top: 4%;
+    background-color: red;
+}
+
+#col-title{
+    background-color: red;
+    align-items: center;
+    text-align: center;
+}
+
+#container-content{
+    height: 600px;
+    background-color: rgb(144, 144, 144);
+    margin-left: 0;
+    margin-right: 0;
+    height: fit-content;
+    width: 100%;
+    max-width: none;
+}
+
+#col-content0{
+    background-color: #ffbc65;
+    height: 700px;
+    width: 700px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#col-content1{
+    background-color: antiquewhite;
+    height: 700px;
+    width: 700px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#col-content2{
+    background-color: aquamarine;
+    height: 700px;
+    width: 700px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#col-content3{
+    background-color: blueviolet;
+    height: 700px;
+    width: 700px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+footer{  
+    background-color: rgb(44, 42, 42);
+    height: 120px;
+}
+
+#col-copyright{
+    margin-top: 20px;
+}
+
+.copyright{
+    color: rgb(122, 122, 122);
+    padding-left: 5%;
+    padding-bottom: 2%;
+    padding-top: 10%;
+    font-size: 16px;
+}
+
+#copyright{
+    height: 100px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.square{
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(61, 187, 255);
+    opacity: 0;
+    border: 2px solid #3f3f3f;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    transform: translateX(3rem);
+    margin-right: 1px;
+    animation: fadeInLeft 2s ease 0.5s forwards;
+}
+.square:hover{
+    background-color:rgb(255, 149, 0);
+}
+
+.innerSquare{
+    position: absolute;
+    font-size: 22px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    color: rgb(55, 53, 53);
+}
+
+.index{
+    /*margin-top: 56px;*/
+    /*margin-left: 14px;*/
+    text-align: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.text-square{
+    margin-top: 10%;
+    font-size: 22px;
+    color: rgb(127, 127, 127);
+}
+
+.text-index{
+    font-size: 18px;
+    color: rgb(151, 114, 114);
+}
+
+.square-container{
+    display: block;
+}
+
+#squares-wrapper{
+    display: flex;
+    margin-top: 4%;
+    margin-bottom: 3%;
+}
+
+#container-linked{
+    background-color: #d4d0d0;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#linkedList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.node {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.arrow {
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    position: relative;
+    margin: 0 5px;
+}
+
+.arrow:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    border: 5px solid transparent;
+    border-left-color: black;
+}
+
+
+@media screen and (min-width: 500px) {
+
+}
+
+@media screen and (min-width: 776px) {
+
+}
+
+@media screen and (min-width: 825px) {
+
+}
+
+@media screen and (min-width: 1000px) {
+
+}
+
+@media screen and (min-width: 1200px) {
+
+}

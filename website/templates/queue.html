@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/queue.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Queue</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="par0">
+                            A queue is a fundamental data structure in computer science that models a collection of elements in a particular order. The defining feature of a queue is that it operates on a First-In-First-Out (FIFO) principle. This means that the first element added to the queue will be the first one to be removed, much like people standing in line to buy tickets at a movie theater: the person who arrives first is served first.
+                        </p>
+                        <p class="par0"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">    
+                        <h4>Queue Visualization</h4>
+                        <div class="controls">
+                            <input type="text" id="elementInput" placeholder="Enter element" maxlength="7">
+                            <button onclick="enqueue()">Enqueue</button>
+                            <button onclick="dequeue()">Dequeue</button>
+                        </div>
+                        <div class="queue-container-wrapper">
+                            <div class="queue-container" id="queueContainer"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>Characteristics of a Queue</h4>
+                        <p class="par0">FIFO Principle: The essential characteristic of a queue is that it follows the FIFO order. The first element enqueued (inserted) is the first one to be dequeued (removed).</p>
+                        <h4>Operations</h4>
+                        <ul>
+                            <li class="par1">Enqueue: Adding an element to the end of the queue.</li>
+                            <li class="par1">Dequeue: Removing the element from the front of the queue.</li>
+                            <li class="par1">Peek/Front: Viewing the element at the front without removing it.</li>
+                            <li class="par1">IsEmpty: Checking if the queue is empty.</li>
+                            <li class="par1">Size: Getting the number of elements in the queue.</li>
+                        </ul>
+                        <h4>Types of Queues</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Simple Queue: Also known as a linear queue. Elements are added at the end and removed from the front. When it becomes full, no more elements can be added without dequeuing some first.</li>
+                            <li class="par1">Circular Queue: In a circular queue, the last position is connected back to the first position to make a circle. This allows efficient use of storage, making it possible to use all available slots without needing to shift elements.</li>
+                            <li class="par1">Priority Queue: Elements are processed based on their priority rather than their order in the queue. Higher priority elements are dequeued before lower priority ones. It can be implemented using a heap data structure for efficiency.</li>
+                            <li class="par1">Deque (Double-ended Queue): A deque allows elements to be added or removed from both ends, providing greater flexibility than a simple queue.</li>
+                        </ul>
+                        <h4>Implementations of Queues</h4>
+                        <ul>
+                            <li class="par1">Array-Based Queue: An array is used to store the queue elements. Two pointers (or indices) track the front and rear of the queue. When the end of the array is reached, elements may need to be shifted or the array can be used in a circular manner.</li>
+                            <li class="par1">Linked List-Based Queue: A linked list is used to store the queue elements. A node structure contains a value and a reference to the next node. The front and rear pointers track the beginning and end of the queue. This implementation allows dynamic resizing and avoids the need for shifting elements.</li>
+                        </ul>
+                        <h4>Applications of Queues</h4>
+                        <ul>
+                            <li class="par1">Scheduling Tasks: Operating systems use queues for job scheduling and managing tasks such as print jobs, process scheduling, and handling requests in servers.</li>
+                            <li class="par1">Buffer Management: Queues are used in buffering data streams, such as in input/output (I/O) operations, where data needs to be managed between processes operating at different speeds.</li>
+                            <li class="par1">Breadth-First Search (BFS): In graph traversal algorithms like BFS, a queue is used to keep track of the vertices to be explored, ensuring that each level of the graph is processed in order.</li>
+                            <li class="par1">Simulation: Queues model real-world processes such as customers waiting in line, packets in networking, or requests to a web server.</li>
+                            <li class="par1">Data Stream Processing: Queues handle real-time data streams where data arrives at a rapid rate, and needs to be processed in the order it arrives.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/queue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

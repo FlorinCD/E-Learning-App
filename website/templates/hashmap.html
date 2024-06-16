@@ -62,7 +62,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col" id="squares-wrapper">
+                    <div class="container">
+                        <h4>HashMap Visualization</h4>
+                        <div id="hashmap">
+                            <!-- Buckets will be dynamically generated here -->
+                        </div>
+                        <div class="controls">
+                            <input type="text" id="key" placeholder="Enter Key" maxlength="7">
+                            <input type="text" id="value" placeholder="Enter Value" maxlength="7">
+                            <button onclick="addKeyValue()">Add Key-Value Pair</button>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -92,7 +101,6 @@
                         <ul>
                             <li class="par1">Overall, hashmaps are widely used due to their efficiency in storing and retrieving key-value pairs, making them essential in computer science and software engineering for tasks like caching, indexing, and implementing associative arrays or dictionaries.</li>
                         </ul>
-                        <li class="infoHowtoUse"></li>
                     </div>
                 </div>
             </div>

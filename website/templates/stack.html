@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/stack.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Stack</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="par0">
+                            A stack is a fundamental data structure in computer science that operates on the principle of Last In, First Out (LIFO). This means that the last element added to the stack will be the first one to be removed. Stacks are widely used due to their simplicity and the natural way they model certain computational processes.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <h4>Stack Visualization</h4>
+                        <div class="controls">
+                            <input type="text" id="stackValue" placeholder="Enter Stack Value" maxlength="5">
+                            <button onclick="pushStack()">Push</button>
+                            <button onclick="popStack()">Pop</button>
+                        </div>
+                        <div id="stackContainer">
+                            <!-- Stack items will be dynamically generated here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>Concept and Basic Operations</h4>
+                        <p class="par0">A stack can be visualized as a collection of elements with two primary operations:</p>
+                        <ul>
+                            <li class="par1">Push: This operation adds an element to the top of the stack.</li>
+                            <li class="par1">Pop: This operation removes the element from the top of the stack.</li>
+                        </ul>
+                        <p class="par0">Additional operations that are often provided include:</p>
+                        <ul>
+                            <li class="par1">Peek (or Top): Returns the top element of the stack without removing it.</li>
+                            <li class="par1">IsEmpty: Checks if the stack is empty.</li>
+                            <li class="par1">Size: Returns the number of elements in the stack.</li>
+                        </ul>
+                        <h4>Applications of Stacks</h4>
+                        <p class="par0">Stacks are used in various scenarios in computer science and programming:</p>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Expression Evaluation: Stacks are used to evaluate arithmetic expressions, particularly those in postfix or prefix notation.</li>
+                            <li class="par1">Backtracking: Stacks are useful for algorithms that involve exploring different paths or states, such as maze solving or depth-first search (DFS) in graphs.</li>
+                            <li class="par1">Function Call Management: The call stack in most programming languages is a stack that manages function calls and returns, storing local variables and return addresses.</li>
+                            <li class="par1">Syntax Parsing: Compilers and interpreters use stacks to parse expressions and programming languages, matching parentheses and other delimiters.</li>
+                            <li class="par1">Undo Mechanism: Applications like text editors use stacks to implement undo functionality, allowing users to revert recent changes.</li>
+                        </ul>
+                        <p class="par0">The stack is a versatile and essential data structure that underpins many algorithms and processes in computer science. Its LIFO behavior aligns naturally with scenarios where the most recent addition needs to be the first to be accessed, such as managing function calls or navigating through complex algorithms. Understanding and effectively implementing stacks can significantly enhance a programmer's ability to solve a broad range of computational problems.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/stack.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/set.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Set</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="par0">
+                            Sets are a fundamental data structure used in programming to store unique elements. Unlike arrays or lists, sets automatically enforce the uniqueness of their elements, making them ideal for tasks where duplication is not allowed. Sets are commonly used in various domains such as database operations, mathematics, and algorithm design.
+                        </p>
+                        <p class="par0"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <h4>Set Visualization</h4>
+                        <input type="text" id="elementInput" placeholder="Enter element" maxlength="7">
+                        <button onclick="addElement()">Add Element</button>
+                        <div class="set-container" id="setContainer">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>Characteristics of Sets</h4>
+                        <ul>
+                            <li class="par1">Uniqueness: Elements in a set are unique. If you try to add a duplicate, it will be ignored or replaced, depending on the implementation.</li>
+                            <li class="par1">Unordered: The elements in a set do not have a specific order. Accessing elements by position is not possible.</li>
+                            <li class="par1">Dynamic Size: Sets can grow or shrink dynamically as elements are added or removed.</li>
+                        </ul>
+                        <h4>Operations on Sets</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Add: Insert an element into the set.</li>
+                            <li class="par1">Remove: Delete an element from the set.</li>
+                            <li class="par1">Check Membership: Verify if an element is part of the set.</li>
+                            <li class="par1">Size: Determine the number of elements in the set.</li>
+                        </ul>
+                        <h4>Set Operations</h4>
+                        <ul>
+                            <li class="par1">Union: Combine elements from two sets, ensuring all elements are unique.</li>
+                            <li class="par1">Intersection: Identify elements that are common to both sets.</li>
+                            <li class="par1">Difference: Find elements present in one set but not in the other.</li>
+                            <li class="par1">Symmetric Difference: Find elements that are in either of the sets but not in their intersection.</li>
+                        </ul>
+                        <h4>Applications of Sets</h4>
+                        <ul>
+                            <p class="par0">In database systems, sets are used to handle operations like union, intersection, and difference on data sets. For example, SQL operations like UNION, INTERSECT, and EXCEPT can be modeled using set operations.</p>
+                            <p class="par0">Sets are inherently suitable for removing duplicates from a collection. For instance, if you have a list of email addresses with duplicates, converting the list to a set will eliminate the duplicates.</p>
+                            <p class="par0">Sets are used in various algorithms, particularly in problems involving graph theory (e.g., finding cycles, shortest paths) and combinatorial optimization. For example, in graph traversal algorithms like Depth-First Search (DFS) or Breadth-First Search (BFS), sets are used to keep track of visited nodes.</p>
+                            <p class="par0">In NLP, sets can be used to store unique words or characters, such as in word tokenization, vocabulary building, or stop word filtering. This helps in analyzing text data without redundancy.</p>
+                            <p class="par0">Sets can be used in event-driven systems to keep track of active events or subscribers without duplication. This is useful in scenarios where multiple components may register for the same event.</p>
+                        </ul>
+                        <h4>Advantages of Sets</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <p class="par0">Unordered Uniqueness: Ensures that elements are unique without concern for order, simplifying the logic for membership checking and duplication.</p>
+                            <p class="par0">Efficient Membership Testing: Many set implementations provide efficient algorithms for checking membership, often in constant time O(1).</p>
+                            <p class="par0">Mathematical Operations: Sets support direct implementation of operations like union and intersection, which are useful in various computational problems.</p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/set.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

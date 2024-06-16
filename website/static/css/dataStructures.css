@@ -91,6 +91,12 @@ body{
     padding-top: 2%;
 }
 
+#second-row{
+    /*background-color: rgb(183, 116, 116);*/
+    margin-left: 4%;
+    padding-top: 2%;
+}
+
 #array{
     background-color: rgb(65, 65, 65);
     background-image: url('../images/Arrays.png');
@@ -138,6 +144,59 @@ body{
 #hashmap:hover{
     filter: brightness(150%);
 }
+
+
+#set{
+    background-color: rgb(65, 65, 65);
+    background-image: url('../images/setImgTry.png');
+    background-size: 100% 100%;
+    margin-top: 2%;
+    height: 200px;
+    width: 280px;
+    border-radius: 6%;
+    margin-left: 5%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    text-decoration: none;
+}
+#set:hover{
+    filter: brightness(150%);
+}
+
+#queue{
+    background-color: rgb(65, 65, 65);
+    background-image: url('../images/queueImgTry.png');
+    background-size: 100% 100%;
+    margin-top: 2%;
+    height: 200px;
+    width: 280px;
+    border-radius: 6%;
+    margin-left: 5%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    text-decoration: none;
+}
+#queue:hover{
+    filter: brightness(150%);
+}
+
+#stack{
+    background-color: rgb(65, 65, 65);
+    background-image: url('../images/stackImg.png');
+    background-size: 100% 100%;
+    margin-top: 2%;
+    height: 200px;
+    width: 280px;
+    border-radius: 6%;
+    margin-left: 5%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    text-decoration: none;
+}
+#stack:hover{
+    filter: brightness(150%);
+}
+
+
+
+
 
 @keyframes columns-animation0{
     0%{

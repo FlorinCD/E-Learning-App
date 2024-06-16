@@ -194,9 +194,29 @@ def arrays():
     return render_template("arrays.html", user=current_user)
 
 
+@views.route("/data-structures/linkedList")
+def linkedList():
+    return render_template("linkedList.html", user=current_user)
+
+
 @views.route("/data-structures/hashmap")
 def hashmap():
     return render_template("hashmap.html", user=current_user)
+
+
+@views.route("/data-structures/set")
+def set():
+    return render_template("set.html", user=current_user)
+
+
+@views.route("/data-structures/queue")
+def queue():
+    return render_template("queue.html", user=current_user)
+
+
+@views.route("/data-structures/stack")
+def stack():
+    return render_template("stack.html", user=current_user)
 
 
 @views.route("/algorithms")

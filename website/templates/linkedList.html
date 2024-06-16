@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/linkedList.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md col-xs">
+                        <h2 class="page-header">Linked list</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="par0">
+                            A linked list is a fundamental data structure in computer science used to represent a sequence of elements, known as nodes. Unlike arrays, linked lists do not require contiguous memory locations and provide efficient insertions and deletions. This flexibility makes them a crucial part of many algorithms and applications.
+                        </p>
+                        <p class="par0"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container" id="container-linked">
+                        <h1>Linked List Visualization</h1>
+                        <div class="controls">
+                            <input type="text" id="nodeValue" placeholder="Enter Node Value" maxlength="5">
+                            <button onclick="addNode()">Add Node</button>
+                            <button onclick="removeNode()">Remove Node</button>
+                        </div>
+                        <div id="linkedList">
+                            <!-- Linked list nodes will be dynamically generated here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4>Structure of a Linked List</h4>
+                        <p class="par0">A linked list is composed of nodes, where each node contains:</p>
+                        <ul>
+                            <li class="par1">Data: The value or information stored in the node.</li>
+                            <li class="par1">Pointer (or Reference): A reference to the next node in the sequence.</li>
+                        </ul>
+                        <h4>Types of Linked Lists</h4>
+                        <p class="par0">1. Singly Linked List: Each node points to the next node. Useful for simple traversal and operations.</p>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Advantages: Simple implementation, less memory overhead compared to doubly linked </li>
+                            <li class="par1">Disadvantages: Unidirectional traversal; no backward movement.</li>
+                        </ul>
+                        <p class="par0">2. Doubly Linked List: Each node points to both the next and previous nodes. Supports bidirectional traversal.</p>
+                        <ul>
+                            <li class="par1">Advantages: Easier to implement operations like deletion and reversal; bidirectional traversal.</li>
+                            <li class="par1">Disadvantages: Increased memory usage due to extra pointer.</li>
+                        </ul>
+                        <p class="par0">3. Circular Linked List: The last node points to the first node. Can be singly or doubly linked.</p>
+                        <ul>
+                            <li class="par1">Advantages: Can traverse the entire list from any node; useful for implementing circular buffers or round-robin scheduling.</li>
+                            <li class="par1">Disadvantages: Handling edge cases can be more complex.</li>
+                        </ul>
+                        <h4>Applications</h4>
+                        <ul>
+                            <!--li class="par1">Calculate the middle index as <span class="highlightText">mid</span> = (<span class="highlightText">low</span> + <span class="highlightText">high</span>) / 2.</li-->
+                            <li class="par1">Dynamic Memory Allocation: Used in memory management schemes like malloc/free in C.</li>
+                            <li class="par1">Implementing Stacks and Queues: Linked lists can efficiently implement stack (LIFO) and queue (FIFO) structures.</li>
+                            <li class="par1">Graph Representations: Used to represent adjacency lists for graphs.</li>
+                            <li class="par1">Polynomial Arithmetic: Efficiently handles operations on polynomials where terms are dynamically added or removed.</li>
+                            <li class="par1">Round-Robin Scheduling: Circular linked lists are ideal for implementing round-robin scheduling in operating systems.</li>
+                        </ul>
+
+                        <h4>Advantages</h4>
+                        <ul>
+                            <li class="par1">Dynamic Size: Linked lists can grow or shrink in size dynamically, unlike arrays which require a fixed size.</li>
+                            <li class="par1">Efficient Insertions/Deletions: Especially for operations at the beginning or middle, where linked lists do not require shifting elements.</li>
+                        </ul>
+
+                        <h4>Disadvantages</h4>
+                        <ul>
+                            <li class="par1">Memory Overhead: Additional memory is used for storing pointers/references.</li>
+                            <li class="par1">Sequential Access: Accessing elements requires traversal from the head, making it slower than arrays for indexed access.</li>
+                            <li class="par1">Cache Locality: Nodes are scattered in memory, leading to poor cache performance compared to contiguous array elements.</li>
+                        </ul>
+
+                        <h4>Conclusion</h4>
+                        <ul>
+                            <p class="par1">Linked lists are a versatile data structure that offer a dynamic alternative to arrays for storing sequential data. Their flexibility in insertion and deletion operations makes them ideal for scenarios where such operations are frequent. Despite their drawbacks, such as higher memory usage and slower indexed access, linked lists remain a fundamental concept in computer science, widely used in both academic and practical applications. Understanding linked lists is crucial for developing efficient algorithms and data structures in various domains.</p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../static/javascript/linkedList.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
