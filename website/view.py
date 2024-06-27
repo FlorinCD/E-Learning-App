@@ -1,9 +1,10 @@
 import base64
 import concurrent
+from . import db
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for, session
 from flask_login import login_required, current_user
 from .models import Problems, Testcases, Code_Language, Submissions
-from .models import SolvedProblems
+from .models import SolvedProblems, Users
 from .utilities import (run_process, get_data_from_json, add_submission_to_db,
                         get_content_current_submission, delete_submission, calculate_percent_run_time,
                         time_complexity_limit_exceeded, memory_usage_limit_exceeded, submit_container,
@@ -49,7 +50,9 @@ def problem_success():
         content = get_content_current_submission(submission_id)
 
         # delete the submission content from db
-        delete_submission(submission_id)
+        # delete_submission(submission_id)
+        # if sub is not deleted the page can be reloaded
+        # the sub will remain in the database
 
         run_time = content["run_time"].split('.')[0]
         memory_usage = content["memory_usage"].split('.')[0]
@@ -74,7 +77,9 @@ def problem_fail():
             content = get_content_current_submission(submission_id)
 
             # delete the submission content from db
-            delete_submission(submission_id)
+            # delete_submission(submission_id)
+            # if sub is not deleted the page can be reloaded
+            # the sub will remain in the database
 
             print("This is the content:", content)
             submission_error = content["submission_error"]
@@ -181,7 +186,77 @@ def problem_post():
 @views.route("/profile")
 @login_required
 def profile():
-    return render_template("userProfile.html", name=current_user.username, user=current_user)
+    points, score = {"Easy": 3, "Medium": 5, "Hard": 7}, 0
+    been, filtered_problems, problems_category = set(), [], {"Easy": 0, "Medium": 0, "Hard": 0}
+    user_to_write = Users.query.filter_by(id=current_user.id).first()
+
+    # filter from all solved problems just one for each problems
+    # in solved_problems there are all the solved problems aka more solutions for each problem
+    # filter the problems
+    solved_problems = SolvedProblems.query.filter_by(id_user=current_user.id).all()
+    for element in solved_problems:
+        if element.id_problem not in been:
+            been.add(element.id_problem)
+            filtered_problems.append(element)
+
+    # get the total score
+    for element in filtered_problems:
+        current_problem = Problems.query.filter_by(id=element.id_problem).first()
+        difficulty = current_problem.difficulty
+
+        score += points[difficulty]
+        problems_category[difficulty] += 1
+
+    # write to db the points
+    user_to_write.points = score
+    db.session.commit()
+
+    all_users, rank = Users.query.filter_by().all(), 0
+    all_users.sort(key=lambda x: x.points, reverse=True)
+    for i, element in enumerate(all_users):
+        if element.id == current_user.id:
+            rank = i + 1
+            user_to_write.current_rank = rank
+            db.session.commit()
+            break
+
+    # get all the problems on categories and make the difference of what is not solved yet
+    all_problems = Problems.query.filter_by().all()
+    problems_all_category = {"Easy": 0, "Medium": 0, "Hard": 0}
+
+    for element in all_problems:
+        problems_all_category[element.difficulty] += 1
+
+    problems_all_category["Easy"] -= problems_category["Easy"]
+    problems_all_category["Medium"] -= problems_category["Medium"]
+    problems_all_category["Hard"] -= problems_category["Hard"]
+
+    if request.method == 'GET':
+        for key, value in request.headers:
+            if key == "Problems":
+                d = {"EasySolved": problems_category["Easy"], "MediumSolved": problems_category["Medium"], "HardSolved": problems_category["Hard"],
+                     "EasyUnsolved": problems_all_category["Easy"], "MediumUnsolved": problems_all_category["Medium"], "HardUnsolved": problems_all_category["Hard"]}
+                return jsonify(d)
+    return render_template("userProfile.html", name=current_user.username, user=current_user, score=score, problems_category=problems_category, problems_unsolved=problems_all_category)
+
+
+@views.route("/about")
+def about():
+    return render_template("about.html", name=current_user.username, user=current_user)
+
+
+@views.route("/contact", methods=['GET', 'POST'])
+@login_required
+def contact():
+    if request.method == "POST":
+        data = request.get_json()
+        return jsonify({"message": "Data received successfully"})
+    return render_template("contact.html", name=current_user.username, user=current_user)
+
+
+@views.route("/tutorial")
+def tutorial():
+    return render_template("tutorial.html", name=current_user.username, user=current_user)
 
 
 @views.route("/data-structures")
@@ -205,7 +280,7 @@ def hashmap():
 
 
 @views.route("/data-structures/set")
-def set():
+def sets():
     return render_template("set.html", user=current_user)
 
 

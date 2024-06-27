@@ -24,7 +24,7 @@ function removeNode() {
         alert('Please enter the value of the node you want to delete!');
         return;
     }
-    for(let i=0;i<linkedList.length-1;i++){
+    for(let i=0;i<linkedList.length;i++){
         if(linkedList[i] == inputVal){
             linkedList.splice(i, 1); // Remove the first occurence
         }

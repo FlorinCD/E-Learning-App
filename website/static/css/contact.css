@@ -1,0 +1,584 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.navbar{
+    background-color: rgb(44, 42, 42);
+}
+
+.nav-link{
+    color: rgb(177, 172, 172);
+}
+.nav-link:hover {
+    color: rgb(216, 216, 216);
+}
+
+.navbar-brand{
+    background-image: url('../icons/algorithm0.png');
+    background-size: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.navbar-nav{
+    width: 40%;
+}
+
+.nav-item{
+    padding-right: 2%;
+    padding-left: 2%;
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*
+body{
+    background-color: rgb(29, 24, 24);
+}*/
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5, #ffffff);
+    animation: gradientBackground 15s ease infinite;
+    color: #333;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+
+.form-box-login h2{
+    margin-left: 38%;
+    margin-top: 0%;
+    color: rgb(61, 61, 61);
+    /*text-shadow: 0.5px 0.5px 0.5px black;*/
+    /*font-family: 'Kumbh Sans', sans-serif;*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.form-box-register h2{
+    margin-left: 24%;
+    margin-top: 0%;
+    color: rgb(61, 61, 61);
+    /*text-shadow: 0.5px 0.5px 0.5px black;*/
+    /*font-family: 'Kumbh Sans', sans-serif;*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.loginWrapper{
+    margin-top: 10%;
+    margin-bottom: 0%;
+    margin-left: 10%;
+    height: 560px;
+    width: 400px;
+    /*background-color: rgb(112, 112, 112);*/
+    background-color: rgb(149, 149, 149);
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    border-radius: 5%;
+    backdrop-filter: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow: hidden;
+}
+
+.form-box-login{
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box-register{
+    width: 100%;
+    padding: 40px;
+}
+
+.input-box{
+    position: relative;
+    width: 95%;
+    height: 40px;
+    border-bottom: 2px solid #162938;
+    margin-top: 12%;
+    margin-bottom: 12%;
+    color: rgb(114, 203, 255);
+    font-size: 18px;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    padding-bottom: 16%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input{
+    width: 88%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 22px;
+    color: rgb(42, 34, 69);
+}
+
+.btn{
+    /*background-color: rgb(173, 92, 0);*/
+    color: rgb(255, 255, 255);
+    background-color: rgb(42, 34, 69);
+    /*margin-left: 37%;*/
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    width: 100%;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(0,0,0,.8);
+}
+
+.btn:hover{
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.login-register{
+    align-items: center;
+    text-align: center;
+    margin-top: 5%;
+}
+.login-register a{
+    color: #162938;
+    text-decoration: none;
+}
+
+.login-register a:hover{
+    text-decoration: underline;
+}
+
+.loginImg{
+    background-image: url(../images/loginBG.png);
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    margin-top: 10%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    opacity: 0;
+    transform: translateY(4rem);
+    animation: fadeInUpOpacity 1 ease 1.7s forwards;
+}
+
+.loginWrapper .form-box-login{
+    display: block;
+}
+
+.loginWrapper .form-box-register{
+    /*transform: translateX(400px);*/
+    display: none;
+}
+
+@keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+@keyframes fadeInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUpOpacity {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+.page-header{
+    color: #7b7777;
+    font-size: 26px;
+    font-weight: 100;
+    opacity: 0;
+    transform: translateY(2rem);
+    animation: fadeInUp 2s ease 0.1s forwards;
+    text-align: center;
+    margin: 0;
+    display: block;
+    float: right;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+
+}
+
+#main-wrapper{
+    margin-top: 2%;
+}
+
+.contact {
+    max-width: 600px;
+    width: 100%;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.contact h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #007bff;
+}
+
+.contact p {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+    animation: slideUp 0.5s ease-in-out;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.contact-img{
+    background-image: url("../images/contact-img0.jpg");
+    background-size: 100% 100%;
+    height: 480px;
+    width: 500px;
+    margin-top: 80px;
+    margin-left: 30px;
+    opacity: 0;
+    animation: fadeInUp 1.8s ease 0.1s forwards;
+}
+
+.contact-img-text-wrapper{
+    text-align: center;
+    height: fit-content;
+    width: 100%;
+}
+
+.contact-img-text{ 
+    opacity: 0;
+    font-size: 24px;
+    font-weight: 300; /* Lighter font weight */
+    font-family: 'Brush Script MT', cursive;
+    color: #fafdff;
+    animation-delay: 4;
+    animation: fadeInUp 5.2s ease 0.1s forwards;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+
+footer{  
+    background-color: rgb(44, 42, 42);
+    height: 120px;
+}
+
+#col-copyright{
+    margin-top: 20px;
+}
+
+.copyright{
+    color: rgb(122, 122, 122);
+    padding-left: 5%;
+    padding-bottom: 2%;
+    padding-top: 10%;
+    font-size: 16px;
+}
+
+#copyright{
+    height: 100px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+@media screen and (max-width: 300px) {
+
+}
+
+@media screen and (min-width: 400px) {
+    
+}
+@media screen and (min-width: 500px) {
+    .loginWrapper{
+        margin-top: 10%;
+        margin-bottom: 0%;
+        margin-left: 10%;
+        height: 460px;
+        width: 360px;
+    }
+    .loginImg{
+        margin-left: 4%;
+        width: 420px;
+        height: 340px;
+    }
+    #copyright{
+        margin-top: 45%;
+    }
+    .contact-img{
+        display: none;
+    }
+    .contact-img-text-wrapper{
+        display: none;
+    }
+    
+}
+@media screen and (min-width: 700px) {
+    .loginImg{
+        margin-left: 4%;
+        width: 460px;
+        height: 380px;
+    }
+    .loginWrapper{
+        margin-top: 10%;
+        margin-bottom: 0%;
+        margin-left: 10%;
+        height: 560px;
+        width: 360px;
+    }
+}
+
+@media screen and (max-width: 766px) {
+}
+
+@media screen and (min-width: 770px) {
+    .loginWrapper{
+        margin-top: 10%;
+        margin-bottom: 0%;
+        margin-left: 10%;
+        height: 560px;
+        width: 400px;
+    }
+
+    .loginImg{
+        margin-left: 4%;
+        width: 500px;
+        height: 400px;
+    }
+    #copyright{
+        margin-top: 35%;
+    }
+    .contact-img{
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .loginImg{
+        width: 85%;
+        height: 85%;
+    }
+    #copyright{
+        margin-top: 30%;
+    }
+    .contact-img{
+        height: 305px;
+        width: 400px;
+        margin-top: 80px;
+        margin-left: 30px;
+        display: block;
+    }
+    .contact-img-text-wrapper{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1100px){
+
+    .loginImg{
+        width: 90%;
+        height: 90%;
+    }
+
+    #copyright{
+        margin-top: 25%;
+    }
+    .contact-img{
+        height: 340px;
+        width: 460px;
+        margin-top: 80px;
+        margin-left: 30px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .loginImg{
+        width: 90%;
+        height: 90%;
+    }
+    .contact-img{
+        height: 749;
+        width: 500px;
+        margin-top: 80px;
+        margin-left: 30px;
+    }
+    
+}
+
+@media screen and (min-width:1280){
+    .loginImg{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 1390px) {
+
+    .loginImg{
+        width: 100%;
+        height: 100%;
+    }
+
+    #copyright{
+        margin-top: 20%;
+    }
+
+    .loginWrapper{
+        margin-top: 10%;
+        margin-bottom: 0%;
+        margin-left: 10%;
+        height: 560px;
+        width: 400px;
+    }
+}

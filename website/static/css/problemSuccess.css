@@ -36,7 +36,6 @@
 
 body{
     /*background-color: rgb(0, 96, 2);*/
-    height: 1000px;
     background-color: rgb(29, 24, 24);
 }
 
@@ -624,7 +623,7 @@ footer{
 #copyright{
     height: 100px;
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 0%;
 }
 
 
@@ -644,8 +643,8 @@ footer{
     }
     #copyright{
         top: 40%;
-        margin-top: 80%;
-        margin-bottom: 10%;
+        margin-top: 100%;
+        margin-bottom: 0%;
     }
     .column{
         width: 10px;
@@ -662,8 +661,8 @@ footer{
     }
     #copyright{
         top: 20%;
-        margin-top: 70%;
-        margin-bottom: 10%;
+        margin-top: 80%;
+        margin-bottom: 0%;
     }
     .column{
         width: 12px;
@@ -685,8 +684,8 @@ footer{
     }
     #copyright{
         top: 20%;
-        margin-top: 60%;
-        margin-bottom: 10%;
+        margin-top: 80%;
+        margin-bottom: 0%;
     }
 
 }
@@ -703,7 +702,7 @@ footer{
     #copyright{
         top: 20%;
         margin-top: 50%;
-        margin-bottom: 10%;
+        margin-bottom: 0%;
     }
 }
 
@@ -716,16 +715,13 @@ footer{
         width: 524px;
         margin-top: 12%;
     }
-    body{
-        height: 1200px;
-    }
     .wrapper-full{
 
     }
     #copyright{
         top: 20%;
-        margin-top: 40%;
-        margin-bottom: 10%;
+        margin-top: 60%;
+        margin-bottom: 0%;
     }
 }
 
@@ -739,9 +735,6 @@ footer{
         width: 524px;
         margin-top: 2%;
     }
-    body{
-        height: 1000px;
-    }
     .wrapper-full{
         margin-top: 2%;
         margin-bottom: 2%;
@@ -750,7 +743,7 @@ footer{
     }
     #copyright{
         margin-top: 20%;
-        margin-bottom: 10%;
+        margin-bottom: 0%;
     }
 }
 

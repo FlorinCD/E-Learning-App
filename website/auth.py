@@ -44,12 +44,12 @@ def login():
                 flash('Email is already in use.', category='error')
             elif user_exists:
                 flash('Username is already in use.', category='error')
-            elif len(username) < 6:
-                flash('Username length has to be at least 6 characters.', category='error')
+            elif len(username) < 6 or len(username) > 12:
+                flash('Username length has to be at least 6 characters and maximum 12 characters.', category='error')
             elif len(email) < 12:
                 flash('Email length has to be at least 12 characters.', category='error')
             else:
-                new_user = Users(email=email, username=username, password=generate_password_hash(password, method='pbkdf2:sha256'))
+                new_user = Users(email=email, username=username, password=generate_password_hash(password, method='pbkdf2:sha256'), points=0)
                 db.session.add(new_user)
                 db.session.commit()
                 flash('User created!')

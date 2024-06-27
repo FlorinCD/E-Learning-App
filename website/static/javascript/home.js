@@ -13,3 +13,13 @@ element2.addEventListener("animationend", () => {
   element2.style["overflow"] = "visible";
 }, { once: true });
 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tutorialDiv = document.getElementById('tutorialDiv');
+  
+  tutorialDiv.addEventListener('click', () => {
+    window.location.href = 'http://127.0.0.1:5000/tutorial';
+  });
+
+});

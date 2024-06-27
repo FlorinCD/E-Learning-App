@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <title>E-Learning</title>
+        <link rel="shortcut icon" type="x-icon" href="../static/images/neural.png">
+        <meta name="description" content="AlgoMaster">
+        <meta name="keywords" content="AlgoMaster">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="../static/css/tutorial.css" rel="stylesheet" type="text/css">
+        <script src="../static/javascript/jquery.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-md">
+                <div class="container" id="container0">
+                    <a href="http://127.0.0.1:5000/home" class="navbar-brand"></a>
+                    <button class="navbar-toggler navbar-light" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/home" class="nav-link active" aria-current="page">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/about" class="nav-link active" aria-current="page">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="http://127.0.0.1:5000/contact" class="nav-link active" aria-current="page">Contact</a>
+                            </li>
+                            {% if not user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/login" class="nav-link active" aria-current="page">Login</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/logout" class="nav-link active" aria-current="page">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="http://127.0.0.1:5000/profile" class="nav-link active" aria-current="page">Profile</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="container">
+                <div class="tutorial-container">
+                    <div class="tutorial-step" id="step-1">
+                        <div class="tutorial-content">
+                            <h2>Step 1: Introduction</h2>
+                            <p>Welcome to the tutorial! Let's start with an overview of the topic. Firstly, let's go over the datastructures and learn more about them.</p>
+                        </div>
+                        <img src="../static/images/linkedListVisualization.png" alt="Step 1 Image" class="tutorial-image">
+                        <div class="arrow next" data-target="step-2">Next &rarr;</div>
+                    </div>
+                    <div class="tutorial-step" id="step-2">
+                        <div class="tutorial-content">
+                            <h2>Step 2: Visualize algorithms to understand faster the pseudocode and see how to behave.</h2>
+                            <p>Here's the visualization of Dijkstra's algorithm for the shortest path.</p>
+                        </div>
+                        <img src="../static/images/dijkstraVisualization.png" alt="Step 2 Image" class="tutorial-image">
+                        <div class="arrow prev" data-target="step-1">&larr; Prev</div>
+                        <div class="arrow next" data-target="step-3">Next &rarr;</div>
+                    </div>
+                    <div class="tutorial-step" id="step-3">
+                        <div class="tutorial-content">
+                            <h2>Step 3: Apply the knowledge to solve problems which will give you the opportunity to think outside the box and understand the use cases.</h2>
+                            <p>Have fun implementing your solution using this interface.</p>
+                        </div>
+                        <img src="../static/images/codingInterface.png" alt="Step 3 Image" class="tutorial-image">
+                        <div class="arrow prev" data-target="step-2">&larr; Prev</div>
+                        <div class="arrow next" data-target="step-4">Next &rarr;</div>
+                    </div>
+                    <div class="tutorial-step" id="step-4">
+                        <div class="tutorial-content">
+                            <h2>Step 4: Receive feedback for your solution</h2>
+                            <p>Learn more about time complexity and memory usage of your solutions.</p>
+                        </div>
+                        <img src="../static/images/feedbackTutorial.png" alt="Step 4 Image" class="tutorial-image">
+                        <div class="arrow prev" data-target="step-3">&larr; Prev</div>
+                        <div class="arrow next" data-target="step-5">Next &rarr;</div>
+                    </div>
+                    <div class="tutorial-step" id="step-5">
+                        <div class="tutorial-content">
+                            <h2>Step 5: Ask the AI for hints and solutions!</h2>
+                            <p>Use the power of LLMs to help you in solving the problem.</p>
+                        </div>
+                        <img src="../static/images/AI_Help.png" alt="Step 5 Image" class="tutorial-image">
+                        <div class="arrow prev" data-target="step-4">&larr; Prev</div>
+                        <div class="arrow finish" data-target="finish">Finish</div>
+                    </div>
+                </div>
+                <div class="finish-screen" id="finish">
+                    <h2>Congratulations!</h2>
+                    <p>You have completed the tutorial.</p>
+                    <img src="../static/images/congratz.jpg" alt="Congratz" id="congratz-img">
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="row" id="copyright">
+                    <div class="col" id="col-copyright">
+                        <span class="copyright">Copyright &copy; 2024 AlgoMaster</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../static/javascript/tutorial.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
