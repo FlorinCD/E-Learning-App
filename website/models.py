@@ -39,6 +39,7 @@ class Problems(db.Model):
     statement = db.Column(db.String(500))
     endpoint_name = db.Column(db.String(255))
     python_code = db.Column(db.String(255))
+    method_name = db.Column(db.String(255))
     testcase = relationship('Testcases', backref='problem')  # first argument is the name of the class
     code_lang = relationship('Code_Language', backref='problem')
 

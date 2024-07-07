@@ -3,13 +3,13 @@ import time
 import json
 import os
 from . import db
-from .models import Submissions, Testcases, SolvedProblems
+from .models import Submissions, Testcases, SolvedProblems, Problems
 from flask import session, jsonify
 
 
 # runs the container with the proper configuration
-def run_process(unique_id: str, code: str, testcases_input: str, testcases_output: str, testcases_input_type: str, testcases_output_type: str, path_to_host: str, run_type: str):
-    script_arguments = [unique_id, code, testcases_input, testcases_output, testcases_input_type, testcases_output_type, run_type]
+def run_process(unique_id: str, code: str, testcases_input: str, testcases_output: str, testcases_input_type: str, testcases_output_type: str, path_to_host: str, run_type: str, method_name: str):
+    script_arguments = [unique_id, code, testcases_input, testcases_output, testcases_input_type, testcases_output_type, run_type, method_name]
     docker_command = ['docker', 'run', '--rm', '-v', f'{path_to_host}:/app/ouput_data.json', "--memory=10m",
                       "my-python-app", 'python', './execute_runner.py'] + script_arguments
 
@@ -142,8 +142,13 @@ def submit_container(data, current_problem_id, current_user_id):
     # print(t_output)
     # print(t_input_type)
     # print(t_output_type)
+
+    # get the name of the method which will be used to send the solution from db
+    current_problem = Problems.query.filter_by(id=current_problem_id).first()
+    method_name = current_problem.method_name
+
     try:
-        run_process(unique_id, code, t_input, t_output, t_input_type, t_output_type, path_to_host, "submit")
+        run_process(unique_id, code, t_input, t_output, t_input_type, t_output_type, path_to_host, "submit", method_name)
     except Exception as e:
         # Handle other exceptions
         print("An error occurred:", e)
@@ -220,8 +225,13 @@ def submit_container_2_cases(data, current_problem_id):
     # print(t_output)
     # print(t_input_type)
     # print(t_output_type)
+
+    # get the name of the method which will be used to send the solution from db
+    current_problem = Problems.query.filter_by(id=current_problem_id).first()
+    method_name = current_problem.method_name
+
     try:
-        run_process(unique_id, code, t_input, t_output, t_input_type, t_output_type, path_to_host, "run")
+        run_process(unique_id, code, t_input, t_output, t_input_type, t_output_type, path_to_host, "run", method_name)
     except Exception as e:
         # Handle other exceptions
         print("An error occurred:", e)

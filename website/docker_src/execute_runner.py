@@ -52,6 +52,7 @@ parser.add_argument('output', type=str)
 parser.add_argument('input_type', type=str)
 parser.add_argument('output_type', type=str)
 parser.add_argument('run_type', type=str)
+parser.add_argument('method_name', type=str)
 args = parser.parse_args()
 
 # simulating the running code
@@ -81,7 +82,7 @@ try:
     # get the first method without knowing its name for general purpose
     for name, value in inspect.getmembers(my_module.Solution()):
         # Check if the attribute is a method and not a dunder method (like __init__)
-        if inspect.ismethod(value) and not name.startswith("__"):
+        if inspect.ismethod(value) and name == args.method_name:
             first_method_name = name
             print("THE METHOD NAME is: ", first_method_name)
             break

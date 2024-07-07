@@ -98,7 +98,10 @@ def problem_fail():
 
 @views.route("/problems/check_palindrome", methods=['GET'], )
 @views.route("/problems/longest_increasing_subsequence", methods=['GET'], )
+@views.route("/problems/count_islands", methods=['GET'], )
 @views.route("/problems/find_the_element", methods=['GET'], )
+@views.route("/problems/max_number_duplicates", methods=['GET'], )
+@views.route("/problems/sum_of_leaf_nodes", methods=['GET'], )
 @login_required
 def problem_get():
     # get the endpoint name of the problem to use it to receive the data about it
@@ -135,7 +138,10 @@ def problem_get():
 
 @views.route("/problems/check_palindrome", methods=['POST'], )
 @views.route("/problems/longest_increasing_subsequence", methods=['POST'], )
+@views.route("/problems/count_islands", methods=['POST'], )
 @views.route("/problems/find_the_element", methods=['POST'], )
+@views.route("/problems/max_number_duplicates", methods=['POST'], )
+@views.route("/problems/sum_of_leaf_nodes", methods=['POST'], )
 @login_required
 def problem_post():
     # get the endpoint name of the problem to use it to receive the data about it
