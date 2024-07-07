@@ -1,4 +1,4 @@
-This is a full stack application. The platform is meant to combine all kind of ways to explain and understand data structures and algorithm.
+This is a full stack application. The platform is meant to combine all kind of ways to explain and understand data structures and algorithms.
 There are 3 software modules:
 - algorithm visualization;
 - representation of data structures;
