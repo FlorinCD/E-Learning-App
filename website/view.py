@@ -246,6 +246,23 @@ def profile():
     return render_template("userProfile.html", name=current_user.username, user=current_user, score=score, problems_category=problems_category, problems_unsolved=problems_all_category)
 
 
+@views.route("/rankings")
+@login_required
+def rankings():
+
+    users = Users.query.filter_by().all()
+    users_info = []
+
+    for user in users:
+        users_info.append([user.username, user.points])
+
+    users_info.sort(key=lambda x: x[1], reverse=True)
+    for i, info in enumerate(users_info):
+        info.insert(0, i+1)
+
+    return render_template("rankings.html", user=current_user, users_info=users_info)
+
+
 @views.route("/about")
 def about():
     return render_template("about.html", name=current_user.username, user=current_user)

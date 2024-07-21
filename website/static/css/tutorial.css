@@ -547,15 +547,15 @@ footer{
 }
 @media screen and (min-width: 500px) {
     #congratz-img{
-        height: 324px;
-        width: 484px;
+        height: 125px;
+        width: 376px;
     }
     
 }
 @media screen and (min-width: 700px) {
     #congratz-img{
-        height: 324px;
-        width: 484px;
+        height: 175px;
+        width: 446px;
     }
 }
 
@@ -565,22 +565,22 @@ footer{
 
 @media screen and (min-width: 770px) {
     #congratz-img{
-        height: 384px;
-        width: 544px;
+        height: 215px;
+        width: 506px;
     }
 }
 
 @media screen and (min-width: 850px) {
     #congratz-img{
-        height: 384px;
-        width: 544px;
+        height: 245px;
+        width: 546px;
     }
     
 }
 @media screen and (min-width: 990px){
     #congratz-img{
-        height: 454px;
-        width: 644px;
+        height: 265px;
+        width: 576px;
     }
 }
 
