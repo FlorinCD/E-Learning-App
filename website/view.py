@@ -58,6 +58,31 @@ def problem_success():
         memory_usage = content["memory_usage"].split('.')[0]
         try:
             top_percent = calculate_percent_run_time(int(content["limit_run_time"]), int(float(content["run_time"])))
+
+            points, score = {"Easy": 3, "Medium": 5, "Hard": 7}, 0
+            been, filtered_problems = set(), []
+            user_to_write = Users.query.filter_by(id=current_user.id).first()
+
+            # filter from all solved problems just one for each problems
+            # in solved_problems there are all the solved problems aka more solutions for each problem
+            # filter the problems
+            solved_problems = SolvedProblems.query.filter_by(id_user=current_user.id).all()
+            for element in solved_problems:
+                if element.id_problem not in been:
+                    been.add(element.id_problem)
+                    filtered_problems.append(element)
+
+            # get the total score
+            for element in filtered_problems:
+                current_problem = Problems.query.filter_by(id=element.id_problem).first()
+                difficulty = current_problem.difficulty
+
+                score += points[difficulty]
+
+            # write to db the points
+            user_to_write.points = score
+            db.session.commit()
+
         except Exception as err:
             print(f'{err} from ProblemSuccess route!')
 
