@@ -9,7 +9,7 @@ from .utilities import (run_process, get_data_from_json, add_submission_to_db,
                         get_content_current_submission, delete_submission, calculate_percent_run_time,
                         time_complexity_limit_exceeded, memory_usage_limit_exceeded, submit_container,
                         submit_container_2_cases)
-from .openAI_api import get_AI_solution, get_AI_hint
+from .openAI_api import get_AI_solution, get_AI_hint, get_AI_improve
 import os
 import logging
 import json
@@ -211,6 +211,8 @@ def problem_post():
                         return get_AI_solution(statement, data)
                     elif value == "Hint":
                         return get_AI_hint(statement, data)
+                    elif value == "Improve":
+                        return get_AI_improve(statement, data)
     return render_template("problemTemplate.html", user=current_user, current_problem=current_problem, statement=final_statement, example_dict=testcases_dict)
 
 

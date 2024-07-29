@@ -457,6 +457,16 @@ body{
     margin-left: 40px;
   }
 
+  #button-improve{
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 40px;
+    margin-left: 40px;
+  }
+
   .features{
     display: flex;
   }
@@ -473,6 +483,19 @@ body{
     animation: l1 1s infinite;
     display: none;
   }
+
+.AI-improve-animation{
+    margin-left: 90px;
+    margin-top: 10px;
+    left: 100px;
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid;
+    border-color: #cbcbcb #0000;
+    animation: l1 1s infinite;
+    display: none;
+}
   @keyframes l1 {to{transform: rotate(.5turn)}}
 
   .AI-hint-animation{

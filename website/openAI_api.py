@@ -67,3 +67,20 @@ def get_AI_hint(statement, data):
     prompt_answer = get_openAI_response(given_prompt)
     refactor_answer = decoded_python_code + "\n" + prompt_answer
     return jsonify({"code": refactor_answer})
+
+
+def get_AI_improve(statement, data):
+    # Get the Base64 encoded Python code snippet from the request header
+    encoded_python_code = data
+
+    # Decode the Base64 encoded Python code snippet
+    decoded_python_code = base64.b64decode(encoded_python_code).decode('utf-8')
+    asking = 'Based on the statement of the problem and the python code given, improve the code in terms of efficiency and try to optimize it! Every text message which is not a python code has to be commented using "#" !'
+    given_prompt = f'{statement}\n{decoded_python_code}\n{asking}'
+    prompt_answer = get_openAI_response(given_prompt)
+    print(prompt_answer)
+    # check if the answer is not right -- hardcoded for now - it's hard to manipulate this
+    if "'''python" in prompt_answer:
+        prompt_answer.replace("'''python", "")
+        prompt_answer.replace("'''", "")
+    return jsonify({"code": prompt_answer})

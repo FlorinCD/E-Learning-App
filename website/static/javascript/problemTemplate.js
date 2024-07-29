@@ -6,6 +6,7 @@ var language_code = ""; // the language in which the code will be sent
 // animation for AI solution and hint
 const solution_amimation = document.getElementById("solution-animation");
 const hint_amimation = document.getElementById("hint-animation");
+const improve_amimation = document.getElementById("improve-animation");
 
 const currentUrl = window.location.href;
 // Split the URL by '/' to get the different parts
@@ -495,6 +496,36 @@ document.getElementById("button-hint").addEventListener("click", function() {
         .then(response => response.json())
         .then(data => {
             hint_amimation.style.display = "";
+            console.log(data.code);
+            editor.setValue(data.code);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    else{
+        displayMessage("Select a programming language!");
+    }
+});
+
+// button for AI-Improve from OpenAI API
+document.getElementById("button-improve").addEventListener("click", function() {
+    let current_code = btoa(editor.getValue());
+    // GET request to the server with the purpose of getting a hint from chatGPT
+    // check if the language is selected
+    if(option0.value == "Python"){
+        improve_amimation.style.display = "block";
+
+        fetch(current_endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain; charset=utf-8', 'Ai': "Improve"
+            },
+            body: current_code
+        })
+        .then(response => response.json())
+        .then(data => {
+            improve_amimation.style.display = "";
             console.log(data.code);
             editor.setValue(data.code);
         })
