@@ -17,6 +17,18 @@ There will be only 1 output.
 
 More data will be written over time.
 
+Template for introducing problems:
+#insert into e_learning.problems values(1, "Check palindrom", 70, "", "Easy", "http://127.0.0.1:5000/problems/check_palindrome", "A string is called <palindrome> if the <inversed> string is equal with the <original> one. Given a string <palindrome> return <True> if it's a palindrome or return <False> otherwise.", "check_palindrome", "", "check_palindrome");
+- the endpoints have to match: "http://127.0.0.1:5000/problems/check_palindrome" - "check_palindrome"
+- for highlighting some word use <highlighted_word> such as: A string is called <palindrome> if the ..
+
+
+A string is called <palindrome> if the <inversed> string is equal with the <original> one. Given a string <palindrome> return <True> if it's a palindrome or return <False> otherwise.
+
+
+code="class Solution:
+	def check_palindrome(self, palindrome: str) -> bool:
+
 
 
 
