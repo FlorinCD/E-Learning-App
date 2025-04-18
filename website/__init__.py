@@ -4,16 +4,19 @@ from os import path
 from flask_login import LoginManager
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
+import os
 
-DB_NAME = "website_database"
+DB_NAME = "e_learning"
 db = SQLAlchemy()
 
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = "yosoymuipeligroso"
+    load_dotenv(dotenv_path="C:\\Users\\Florin\\Documents\\E-Learning Project\\website\\.env")
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')#"yosoymuipeligroso"
     # New MYSQL DB
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://root:bark32lwmnbe&wx!@localhost/{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')#f'mysql+pymysql://root:wtfisgoingon22@localhost/e_learning'
     db.init_app(app)
 
     from .view import views

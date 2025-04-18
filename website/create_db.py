@@ -1,6 +1,9 @@
+from dotenv import load_dotenv
 import mysql.connector
+import os
 
-mydb = mysql.connector.connect(host="localhost", user="root", passwd="bark32lwmnbe&wx!")
+load_dotenv(dotenv_path="C:\\Users\\Florin\\Documents\\E-Learning Project\\website\\.env")
+mydb = mysql.connector.connect(host="localhost", user="root", passwd=os.getenv("DB_ROOT_USER_PASS"),)
 
 my_cursor = mydb.cursor()
 
