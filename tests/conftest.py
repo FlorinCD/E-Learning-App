@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from playwright.sync_api import sync_playwright
 from dotenv import load_dotenv
 import pytest
 import os
@@ -12,6 +13,7 @@ load_dotenv(dotenv_path="C:\\Users\\Florin\\Documents\\E-Learning Project\\websi
 
 EMAIL = os.getenv("EMAIL_TEST")
 PASSWORD = os.getenv("PASSWORD_TEST")
+SOLVE_PROBLEMS_URL = "http://127.0.0.1:5000/problems"
 
 # options for webdriver
 options = Options()
@@ -39,6 +41,7 @@ prefs = {
 options.add_experimental_option("prefs", prefs)
 
 
+# selenium fixture
 @pytest.fixture(scope="module")
 def chrome_driver_app():
     driver = webdriver.Chrome(options=options)
@@ -46,6 +49,7 @@ def chrome_driver_app():
     driver.quit()
 
 
+# selenium fixture
 @pytest.fixture(scope="module")
 def logged_client(chrome_driver_app):
     chrome_driver_app.get("http://127.0.0.1:5000/login")
@@ -66,12 +70,41 @@ def logged_client(chrome_driver_app):
     yield chrome_driver_app
 
 
+# selenium fixture
 @pytest.fixture(scope="function")
 def app_instance():
     yield create_app()
 
 
+# selenium fixture
 @pytest.fixture(scope="function")
 def local_client(app_instance):
     with app_instance.test_client() as client:
         yield client
+
+
+#playright fixture
+@pytest.fixture(scope="module")
+def playright_browser():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False, slow_mo=500)  # headless=True for CI/CD
+        yield browser
+        browser.close()
+
+
+@pytest.fixture(scope="module")
+def playright_logged_client(playright_browser):
+    context = playright_browser.new_context()
+    page = context.new_page()
+    page.goto("http://127.0.0.1:5000/login")
+    page.wait_for_selector("h2:text('Login')", timeout=5000)
+
+    email_element = page.locator('input[name="login-email"]')
+    email_element.fill(EMAIL)
+    password_element = page.locator('input[name="login-password"]')
+    password_element.fill(PASSWORD)
+    login_btn = page.locator('button[type="submit"].btn:text("Login")')
+    login_btn.click()
+
+    yield page
+    context.close()
