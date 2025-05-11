@@ -1,0 +1,15 @@
+# LOGIN PAGE
+LOGIN_PAGE_EMAIL_LOCATOR = "login-email"
+LOGIN_PAGE_PASSWORD_LOCATOR = "login-password"
+LOGIN_PAGE_SUBMIT_LOCATOR = "login-submit"
+
+# REGISTER PAGE
+REGISTER_PAGE_EMAIL_LOCATOR = "registration-email"
+REGISTER_PAGE_USERNAME_LOCATOR = "registration-username"
+REGISTER_PAGE_PASSWORD_LOCATOR = "registration-password"
+REGISTER_PAGE_SUBMIT_LOCATOR = "register-submit"
+
+# URL_PAGES
+URL_HOME_PAGE = "http://127.0.0.1:5000/home"
+URL_LOGIN_PAGE = "http://127.0.0.1:5000/login"
+URL_SOLVE_PROBLEMS = "http://127.0.0.1:5000/problems"

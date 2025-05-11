@@ -13,7 +13,6 @@ load_dotenv(dotenv_path="C:\\Users\\Florin\\Documents\\E-Learning Project\\websi
 
 EMAIL = os.getenv("EMAIL_TEST")
 PASSWORD = os.getenv("PASSWORD_TEST")
-SOLVE_PROBLEMS_URL = "http://127.0.0.1:5000/problems"
 
 # options for webdriver
 options = Options()
